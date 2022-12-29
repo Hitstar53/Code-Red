@@ -1,0 +1,24 @@
+Important Git Bash Commands to get started:
+1. After downloading git:
+git config --global user.name "Your Name"
+git config --global user.email "Your_Email"
+git config --global user.password "password"
+git config --global credential.helper store
+to checked saved data: git config --list --show-origin
+to check version: git --version
+
+2. GitHub Repositories:
+git clone "repo_url"
+git checkout -b ""branch_name"
+
+3. Updating Branches:
+git pull 
+git pull origin main
+
+4. To Solve git pull - credentials error:
+a) Run: git config --global credential.helper wincred
+b) Go to: CONTROL PANEL\CREDENTIAL MANAGER\WINDOWS CREDENTIAL\GENERIC CREDENTIAL
+c) Click in add a credential in Internet or network address:  add git:https://{username}.github.com
+User: {name}
+Password: {Password}
+d) Save & Exit
