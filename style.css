@@ -1,17 +1,31 @@
 body {
-    background: linear-gradient(to right, #000080, #800000);
+    background: linear-gradient(to right, #330954, #f23742);
 }
 
 button {
-    background-color: #4caf50;
-    color: white;
-    font-size: 18px;
-    padding: 12px 24px;
+    background-color:  blue;
+    color: lightgray;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 14px 24px;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px;
     cursor: pointer;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: indigo;
+}
+
+#button {
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    transition: all 0.5s ease;
+}
+
+.moved {
+    left: 200px;
+    top: 200px;
 }
