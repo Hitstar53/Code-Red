@@ -1,6 +1,6 @@
 // Get the current time
 const currentTime = new Date().getHours();
 const bg = document.querySelector("body");
-if (currentTime >= 17) {
+if (currentTime >= 1) {
     bg.classList.add("dark");
 }
