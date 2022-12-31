@@ -1,6 +1,6 @@
 const currentTime = new Date().getHours();
 const btn = document.querySelector("button");
-if (currentTime === 18) {
+if (currentTime === 19) {
     btn.disabled = false;
     btn.style.backgroundColor = "#080710";
     btn.style.cursor = "pointer";

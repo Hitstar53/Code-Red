@@ -22,7 +22,7 @@ h2 {
 }
 
 form {
-    height: 450px;
+    height: 460px;
     width: 550px;
     background-color: rgba(255, 255, 255, 0.13);
     position: absolute;
@@ -56,8 +56,18 @@ form p {
     opacity: 0.6;
     left: 37%;
     margin-left: -100px;
-    margin-top: 15px;
 }
+
+.map {
+    position: absolute;
+    top: 50%;
+    left: -20%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    z-index: -1;
+    opacity: 0.75;
+}
+
 div {
     display: flex;
     justify-content: space-between;
@@ -71,10 +81,10 @@ label {
     font-weight: 500;
 }
 .primary-label {
-    margin-top: 50px;
+    margin-top: 20px;
 }
 .ycord {
-    margin-top: 46px;
+    margin-top: 20px;
 }
 input {
     display: block;
@@ -83,7 +93,7 @@ input {
     background-color: rgba(255, 255, 255, 0.07);
     border-radius: 18px;
     padding: 0 20px;
-    margin-top: 47px;
+    margin-top: 20px;
     font-size: 16px;
     font-weight: 300;
 }
@@ -101,4 +111,16 @@ button {
     font-size: 18px;
     font-weight: 600;
     border-radius: 18px;
+}
+
+/* utility classes */
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    padding: 0.6em;
+}
+
+.text-center {
+    text-align: center;
 }
