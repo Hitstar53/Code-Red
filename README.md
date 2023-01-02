@@ -2,8 +2,8 @@
 Website for the Treasure hunt event of Oculus Coding league  
 
 # Tech Stack    
-Frontend:  html,js css & Bootstrap  
-Backend:  Django Only  
+Frontend:  html,js,css & Bootstrap  
+Backend:  Django  
 Database:  MongoDB  
 
 # Ideaologies:
@@ -34,5 +34,5 @@ Database:  MongoDB
 # Base Template  
 - Intel/Backup Options: Intel -> predefined hint, Backup -> will call 'gamemaster'
 - Backup will replace intel
-- Timer in corner
+- Timer in corner: Main Event timer + Level Timer for intel (Hints)
 - Image with gradient - > dependent on level
