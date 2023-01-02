@@ -36,3 +36,10 @@ Database:  MongoDB
 - Backup will replace intel
 - Timer in corner: Main Event timer + Level Timer for intel (Hints)
 - Image with gradient - > dependent on level
+
+# Final Level
+- Past levels may contain additional hints  
+- Theme: Bomb diffusion Level   
+- Wire Cut in specific order  
+- 
+- 
