@@ -23,8 +23,11 @@ Database:  MongoDB
 # Map of the Website   
 - Login Page  ->  password in inspect  
 - floating button  ->  random spot button activates  
-- Map Level  -> coordinates given, open map and type shape/object  
-- Night level ->  we see sun! time change we see part of mumbai light up!
+- Meeting Level  -> coordinates to be deciphered and time to be changed in order to proceed    
+- Crossword level -> find words & password is first letters arranged in order  
+- Fix-Code Level -> fix the code get text code editor API  
+- ......
+- final level -> bomb diffusion  
 
 # Website Template  
 - Oculus Gradient  
@@ -37,9 +40,8 @@ Database:  MongoDB
 - Timer in corner: Main Event timer + Level Timer for intel (Hints)
 - Image with gradient - > dependent on level
 
-# Final Level
+# Final Level - Specifics
 - Past levels may contain additional hints  
 - Theme: Bomb diffusion Level   
 - Wire Cut in specific order  
-- 
-- 
+- Decode something 
