@@ -1,0 +1,19 @@
+#timer {
+    text-align: center;
+}
+
+#bomb {
+    text-align: center;
+}
+
+.wire {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+#explosion {
+    text-align: center;
+}
