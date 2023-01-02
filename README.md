@@ -29,12 +29,7 @@ Database:  MongoDB
 - ......
 - final level -> bomb diffusion  
 
-# Website Template  
-- Oculus Gradient  
-- ToolBar menu / command input field??  
-- 5 tools/commands to be used by user  
-
-# Base Template  
+# Template Ideas
 - Intel/Backup Options: Intel -> predefined hint, Backup -> will call 'gamemaster'
 - Backup will replace intel
 - Timer in corner: Main Event timer + Level Timer for intel (Hints)
