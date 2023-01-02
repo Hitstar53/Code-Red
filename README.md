@@ -4,7 +4,7 @@ Website for the Treasure hunt event of Oculus Coding league
 # Tech Stack    
 Frontend:  html,js,css & Bootstrap  
 Backend:  Django  
-Database:  MongoDB  
+Database:  SQLite  
 
 # Ideaologies:
 - 1 Theme with a set number of cmds    
@@ -25,7 +25,7 @@ Database:  MongoDB
 - floating button  ->  random spot button activates  
 - Meeting Level  -> coordinates to be deciphered and time to be changed in order to proceed    
 - Crossword level -> find words & password is first letters arranged in order  
-- Fix-Code Level -> fix the code get text code editor API  
+- Fix-Code Level -> fix the code get text code editor API (CodeMirror)  
 - ......
 - final level -> bomb diffusion  
 
