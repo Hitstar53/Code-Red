@@ -4,82 +4,106 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 4</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script type="module" src="main.js"></script>
+    <title>OCL | Level 4</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script type='module' src="main.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <button class="btn" id="btnCreate">Create</button>
-        <button class="btn" id="btnPlay">Play</button>
-        <br /><br />
-    
-        <div class="center crossword" id="crossword"></div><br />
-    
-        <div class="center">
-    
-            <div class="line">
-                <input class="word" type="text" value="Tucan" />
-                <input class="clue" value="A tropical bird with a large beak" />
+    <h1>Level 4</h1>
+    <form action="">
+        <div class="cards">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Train 1</h2>
+                    <p>
+                        Start -> End
+                        <br>
+                        Departure (Cypher)
+                        <br>
+                        Details:
+                        <br>
+                        82901
+                        <br>
+                        IRCTC TEJAS EXP
+                        <br>
+                        Bandra Terminus - Ahmedabad
+                        <br>
+                        15:45
+                    </p>
+                    <input type="number" placeholder="Train No." name="train1" id="train1">
+                </div>
             </div>
-    
-            <div class="line">
-                <input class="word" type="text" value="Dingo" />
-                <input class="clue" value="This free-ranging dog is at home in the outback." />
+            <div class="card">
+                <div class="card-body">
+                    <h2>Train 2</h2>
+                    <p>
+                        Start -> End
+                        <br>
+                        Departure (Cypher)
+                        <br>
+                        Details:
+                        <br>
+                        12909
+                        <br>
+                        NZM GARIB RATH
+                        <br>
+                        BDTS - Hazrat Nizamuddin
+                        <br>
+                        17:59
+                    </p>
+                    <input type="number" placeholder="Train No." name="train2" id="train2">
+                </div>
             </div>
-    
-            <div class="line">
-                <input class="word" type="text" value="Dolphin" />
-                <input class="clue" value="A friendly finned non-fish" />
+            <div class="card">
+                <div class="card-body">
+                    <h2>Train 3</h2>
+                    <p>
+                        Start -> End
+                        <br>
+                        Departure (Cypher)
+                        <br>
+                        Details:
+                        <br>
+                        11301
+                        <br>
+                        UDYAN EXPRESS
+                        <br>
+                        CSMT - KSR Bengaluru
+                        <br>
+                        8:10
+                    </p>
+                    <input type="number" placeholder="Train No." name="train3" id="train3">
+                </div>
             </div>
-    
-            <div class="line">
-                <input class="word" type="text" value="Pig" />
-                <input class="clue" value="Bosses of the farm in Orwell's world" />
+            <div class="card">
+                <div class="card-body">
+                    <h2>Train 4</h2>
+                    <p>
+                        Start -> End
+                        <br>
+                        Departure (Cypher)
+                        <br>
+                        Details:
+                        <br>
+                        12809
+                        <br>
+                        HOWRAH MAIL
+                        <br>
+                        CSMT - Kolkata Howrah Jn
+                        <br>
+                        21:10
+                    </p>
+                    <input type="number" placeholder="Train No." name="train4" id="train4">
+                </div>
             </div>
-    
-            <div class="line">
-                <input class="word" type="text" value="Kangaroo" />
-                <input class="clue" value="Boxing champions of the outback" />
-            </div>
-    
-            <div class="line">
-                <input class="word" type="text" value="Octopus" />
-                <input class="clue" value="Eight legged sea creature" />
-            </div>
-    
-            <div class="line">
-                <input class="word" type="text" value="Hamster" />
-                <input class="clue" value="Furry rodent whose teeth never stop growing" />
-            </div>
-    
-            <div class="line">
-                <input class="word" type="text" value="Alligator" />
-                <input class="clue" value="Dating back further than the T-rex, this reptile is a modern day dinosaur" />
-            </div>
-    
-            <div class="line">
-                <input class="word" type="text" value="Ostrich" />
-                <input class="clue" value="Flightless bird not know for its people skills" />
-            </div>
-    
-            <div class="line">
-                <input class="word" type="text" value="Koala" />
-                <input class="clue" value="Friendly version of the infamous Australian tourist terrorizing tree-dwellers" />
-            </div>
-    
-            <div class="line">
-                <input class="word" type="text" value="Mouse" />
-                <input class="clue"
-                    value="This poor animal is often the victim of feline aggression and human experimentation" />
-            </div>
-    
-            <div class="line">
-                <input class="word" type="text" value="Antelope" />
-                <input class="clue" value="The victim of every lion documentary clip you've ever seen." />
-            </div>
-    
         </div>
-    </div>
+        <div class="btn-s">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
 </body>
 </html>
