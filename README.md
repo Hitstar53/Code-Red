@@ -4,21 +4,7 @@ Website for the Treasure hunt event of Oculus Coding league
 # Tech Stack    
 Frontend:  html,js,css & Bootstrap  
 Backend:  Django  
-Database:  SQLite  
-
-# Ideaologies:
-- 1 Theme with a set number of cmds    
-- Use Oculus 2022 color palette  
-- Menu with fluid styling    
-- Start with the login page with credentials hidden  
-- Interactive Ui elements  
-- Floating button    
-- Sample puzzle with a pic with a prime numbers find missing numbers from resolution  
-- Routing using the obtained number to move ahead  
-- Night level: change time to night time: write name of constillation  
-- pattern of air india on yellow background???  
-- 5-6 Commands on all the sites to help the user out in proceeding with the challenge  
-- Dark themed level??  
+Database:  SQLite/MySQL  
 
 # Map of the Website   
 - (Level-1) Login Page  ->  password in inspect  
