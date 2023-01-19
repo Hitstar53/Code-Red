@@ -83,3 +83,8 @@ function stopwatch(elementName, hours, mins, seconds) {
 
 countdown("2h-countdown", 2, 0, 0);
 stopwatch("stopwatch", 2, 0, 0);
+
+// Stopwatch = 10 mins
+// var hints
+// default: 3
+// pre event: 2
