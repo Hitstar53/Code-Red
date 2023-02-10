@@ -1,20 +1,45 @@
 body {
   padding: 20px;
   font-family: Verdana, sans-serif, Arial;
-  background-color: white;
+  background: linear-gradient(to right, #330954, #f23742);
 }
 
-div {
+#wrapper {
   position: absolute;
   top: 25px;
   right: 25px;
-  border: 3px solid black;
-  padding: 5px;
-  font-size: 18px;
+  width: 140px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  border-radius: 10px;
+  padding: 15px;
+  color: white;
+  font-size: 26px;
   font-weight: bold;
   text-decoration: none;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.13);
 }
 
-#stopwatch {
-  top: 80px;
+button {
+  height: 30px;
+  padding: 0 12px 0;
+  font-weight: bold;
+  border-radius: 5px;
+  color: white;
+  background: black;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+#hint {
+  background: grey;
+  color: white;
+  cursor: auto;
+}
+
+button:hover {
+  border: none;
+  background: white;
+  color: black;
 }

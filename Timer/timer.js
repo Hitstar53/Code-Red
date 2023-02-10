@@ -20,7 +20,7 @@ function countdown(elementName, hours, minutes, seconds) {
     updateTimer();
 }
 
-function stopwatch(elementName, hours, mins, seconds) {
+function stopwatch(elementName) {
     //build a stopwatch that keeps going till a stop function is not called
     var minutes = 00;
     var seconds = 00;
@@ -28,27 +28,9 @@ function stopwatch(elementName, hours, mins, seconds) {
     var appendTens = document.getElementById("tens")
     var appendSeconds = document.getElementById("seconds")
     var appendMinutes = document.getElementById("minutes")
+    const btn = document.getElementById("hint");
     var Interval;
     Interval = setInterval(startTimer, 10);
-    /* function startTimer() {
-        tens++;
-        if (tens <= 9) {
-            appendTens.innerHTML = "0" + tens;
-        }
-        if (tens > 9) {
-            appendTens.innerHTML = tens;
-        }
-        if (tens > 99) {
-            console.log("seconds");
-            seconds++;
-            appendSeconds.innerHTML = "0" + seconds;
-            tens = 0;
-            appendTens.innerHTML = "0" + 0;
-        }
-        if (seconds > 9) {
-            appendSeconds.innerHTML = seconds;
-        }
-    } */
     //generate a similar function but it should also display minutes
     function startTimer() {
         tens++;
@@ -75,14 +57,19 @@ function stopwatch(elementName, hours, mins, seconds) {
             seconds = 0;
             appendSeconds.innerHTML = "0" + 0;
         }
-        if (minutes > 9) {
+        if (minutes > 0) {
             appendMinutes.innerHTML = minutes;
+            btn.disabled = false;
+            btn.style.border = "none";
+            btn.style.color = "black";
+            btn.style.backgroundColor = "yellow";
+            btn.style.cursor = "pointer";
         }
     }
 }
 
 countdown("2h-countdown", 2, 0, 0);
-stopwatch("stopwatch", 2, 0, 0);
+stopwatch("stopwatch");
 
 // Stopwatch = 10 mins
 // var hints
