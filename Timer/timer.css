@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap');
+
 html, body{
     margin: 0;
     padding: 0;
@@ -10,59 +11,79 @@ body{
     font-family: Verdana, sans-serif, Arial;
     width: 100vw;
     height: 100vh;
-    
 }
 #bg
 {	
 	position:fixed;
 	background: repeat;
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 	margin: 0;
-    padding: 0;
-    z-index: 2;
+  padding: 0;
+  z-index: 2;
+}
+.modal-content {
+  color: yellowgreen;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.13);
 }
 #wrapper {
   position: absolute;
   top: 25px;
   right: 25px;
   width: 140px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  /* border: 2px solid rgba(255, 255, 255, 0.1); */
   box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
   border-radius: 10px;
   padding: 15px;
   color: white;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: bold;
   text-decoration: none;
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.13);
 }
-
-button {
+#stopwatch {
+  color: orangered;
+}
+#hint,
+#next {
   height: 30px;
+  width: 110px;
   padding: 0 12px 0;
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 6px;
   color: white;
   background: black;
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
-
 #hint {
-  background: grey;
+  font-family: 'Anonymous Pro', monospace;
+  margin-top: 10px;
+  font-size: 14px;
   color: white;
   cursor: auto;
 }
+
 #next{
-  transform:translateX(600%);
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%);
+  height: 45px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
 }
-button:hover {
+
+#next:hover {
   border: none;
   background: white;
   color: black;
 }
+
 .text-wrapper{
   width:50%;
   height: 50%;
@@ -70,14 +91,6 @@ button:hover {
   color: #009a22;
   transform: translate(50%,50%);
   font-family: 'Anonymous Pro', monospace;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
-}
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: orange; }
 }
