@@ -1,0 +1,21 @@
+.text-wrapper{
+    width:80%;
+    height: 50%;
+    position: absolute;
+    color: #009a22;
+    transform: translate(12%,50%);
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 24px;
+    font-weight: 700;
+  }
+#next{
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translate(-50%);
+    height: 45px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }

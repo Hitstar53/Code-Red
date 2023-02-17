@@ -1,16 +1,11 @@
 {% extends 'base.html' %}
-
-<head>
-  <meta charset="UTF-8">
-  <title>level 1</title>
-  {% load static %}
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+{% load static %}
+  {% block title %}
+  Welcome
+  {% endblock %}
+  {% block content %}
   <link rel="stylesheet" href="{% static 'css/level1.css' %}">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
-<body>
+  <!-- <script src="{% static 'js/level1.js' %}"></script> -->
   <div class="background">
     <div class="shape"></div>
     <div class="shape"></div>
@@ -24,6 +19,15 @@
     <input type="password" placeholder="Enter password" id="pswrd">
     <button>Proceed to next level</button>
   </form>
-  <script src="{% static '/js/level1.js' %}"></script>
-</body>
-</html>
+  {% endblock %}
+  {% block hint %}
+  <p>
+    “Hidden in plain sight, the key to unlocking my secrets lies within the code written in black and white."
+  </p>
+  {% endblock %}
+  {% block script %}
+  <script src="{% static 'js/level1.js' %}"></script>
+  {% endblock %}
+<!-- <script src="{% static 'js/level1.js' %}"></script> -->
+  
+

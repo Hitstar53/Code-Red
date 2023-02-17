@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    And here it comes.
+{% endblock %}
+{% block typing %}
+<link rel="stylesheet" href="{% static 'css/prebomb.css' %}">
+<div class="text-wrapper">
+    <p>As you have reached this far, I must admit I am impressed. But don't think the game is over yet. I still
+        want to see the city burn in flames. The next task will be even more enjoyable for me, but definitely
+        not for you. Now that I have revealed the bomb's location, it's up to you to go find it. The question is,
+        once you have found it, how will you defuse it? Keep in mind, it won't stop ticking on its own. One
+        mistake, and the entire city will be blown to smithereens. So, the question is, are you ready to defuse
+        the bomb? 
+    </p>
+    <button id="next">
+        Defuse
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+</div>
+{% endblock %}

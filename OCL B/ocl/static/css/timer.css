@@ -7,7 +7,7 @@ html, body{
 }
 
 body{
-    background: linear-gradient(145deg, #1a1a1a 50%, #404040 115%);
+    background: linear-gradient(to top, #131313, #d00e0e);
     font-family: Verdana, sans-serif, Arial;
     width: 100vw;
     height: 100vh;
@@ -44,7 +44,7 @@ body{
   background: rgba(255, 255, 255, 0.13);
 }
 #stopwatch {
-  color: orangered;
+  color: black;
 }
 #hint,
 #next {
@@ -68,7 +68,7 @@ body{
 
 #next{
   position: absolute;
-  top: 95%;
+  top: 110%;
   left: 50%;
   transform: translate(-50%);
   height: 45px;
@@ -85,11 +85,11 @@ body{
 }
 
 .text-wrapper{
-  width:50%;
+  width:90%;
   height: 50%;
   position: absolute;
   color: #009a22;
-  transform: translate(50%,50%);
+  transform: translate(6%,50%);
   font-family: 'Anonymous Pro', monospace;
   font-size: 24px;
   font-weight: 700;
