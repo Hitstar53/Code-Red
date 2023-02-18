@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  Read Carefully
+  {% endblock %}
+{% block typing %}
+<link rel="stylesheet" href="{% static 'css/prelevel5.css' %}">
+<div class="text-wrapper">
+    <p>
+        You would be wondering why the four numbers? What shall we do with those? I will riddle you that
+        “Four numbers that chug along, on tracks that lead to where you belong, the key to the next stage, lies with the trains that turn the page.”
+        Here's another clue.
+        Four digits to combine and a T9 code to apply, what's left is the same, but in a different shape.
+    </p>
+    <a href="{% url 'level5' %}">
+        <button id="next">
+            Next
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </a>
+</div>
+{% endblock %}

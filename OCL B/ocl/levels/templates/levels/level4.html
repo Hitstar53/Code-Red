@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  Decipher This
+  {% endblock %}
+  {% block content %}
+  <link rel="stylesheet" href="{% static 'css/level4.css' %}"> 
+  <div class="head-wrapper">  
+      <h1 class ="title">Level 4</h1>
+    </div>
+      <div class="form-wrapper"> 
+      <form class="test" action="">
+          <div class="cards">
+              <div class="card">
+                  <div class="card-body">
+                      <h2>AdvEnteDgE</h2>
+                      <p>
+                          By the year 66', 68 sleeper cells migrated to Mumbai. By the year 84' the number rose to 83.
+                          <br>
+                          <br>
+                          Of the already existing, 65 were posted in the western region, 68 were posted in the central region and 73 in the southern.
+                        </p>
+                        <input type="number" placeholder="Train No." name="train1" id="train1">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h2>AGilEgenIe</h2>
+                        <p>
+                            By the year 66', 68 sleeper cells migrated to Mumbai. By the year 84' the number rose to 83.
+                            <br>
+                            <br>
+                            Of the already existing, 78 were posted in the western region, 90 were posted in the central region and 77 in the southern.
+                            
+                        </p>
+                        <input type="number" placeholder="Train No." name="train2" id="train2">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h2>HiJinx</h2>
+                        <p>
+                            In the year 67', 83 sleeper cells migrated to Mumbai. In the year 77' another 84 were brought to this city.
+                            <br>
+                            Of the already existing, 83 were posted in the western region, 66 were posted in the central region and 67 in the southern.
+                        </p>
+                        <input type="number" placeholder="Train No." name="train3" id="train3">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h2>UniJoint</h2>
+                        <p>
+                            In the year 67', 83 sleeper cells migrated to Mumbai. In the year 77' another 84 were brought to this city.
+                            <br>
+                            Of the already existing, 72 were posted in the western region, 87 were posted in the central region and 72 in the southern.
+                        </p>
+                        <input type="number" placeholder="Train No." name="train4" id="train4">
+                    </div>
+                </div>
+            </div>
+            <div class="btn-s">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+        {% endblock %}
+        {% block hint %}
+        <p>
+            1-A1Z26-2-ASCII
+        </p>
+        {% endblock %}
+<!-- {% block script %}
+    <script src="{% static 'js/level4.js' %}"></script>
+{% endblock %} -->

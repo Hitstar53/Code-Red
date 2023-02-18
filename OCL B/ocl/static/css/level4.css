@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+}
+
+.head-wrapper{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(2%,6%);
+    z-index: -10;
+}
+
+.form-wrapper{
+    position: absolute;
+    width: 90vw;
+    height: 90vh;
+    transform: translate(7%, 25%)
+}
+
+.title {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 10%);
+    color: white;
+    font-size: 3rem;
+    font-weight: 600;
+    padding: 1.2rem;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    z-index: 1;
+    font-family: 'Inter', sans-serif;
+}
+
+.card {
+    width: 300px;
+    height: auto;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.card h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0);
+}
+
+.card p {
+    margin-top: 2rem;
+    line-height: 2;
+}
+
+.card input {
+    margin-top: 2rem;
+    border: 0;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+form {
+    overflow: hidden;
+}
+
+.btn-s {
+    transform: translateX(44%);
+}
+
+.btn {
+    margin-top: 1rem;
+    border: 0;
+    border-radius: 10px;
+    color: black;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 0.5rem 4rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
