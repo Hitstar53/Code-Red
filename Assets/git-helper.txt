@@ -9,13 +9,19 @@ to check version: git --version
 
 2. GitHub Repositories:
 git clone "repo_url"
-git checkout -b ""branch_name"
+git log
+git reset --hard commit_hash
+git push --force
 
 3. Updating Branches:
 git pull 
 git pull origin main
+git checkout -b ""branch_name"
 
-4. To Solve git pull - credentials error:
+4. Deleting branches:  
+git branch -D branch_name
+
+5. To Solve git pull - credentials error:
 a) Run: git config --global credential.helper wincred
 b) Go to: CONTROL PANEL\CREDENTIAL MANAGER\WINDOWS CREDENTIAL\GENERIC CREDENTIAL
 c) Click in add a credential in Internet or network address:  add git:https://{username}.github.com
