@@ -22,10 +22,17 @@ h1 {
 }
 
 .card {
+    height: 375px;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     background: rgba(255, 255, 255, 0.13);
     box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .wrong {
