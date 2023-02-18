@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="{% static 'css/level2.css' %}">
   <h2>Level 2</h2>
   <p class="word"></p>
-  <button id="button">Click me</button>
+  <a href="{% url 'prelevel3' %}">
+    <button id="button">Click me</button>
+  </a>
 {% endblock %}
 {% block hint %}
   <span>
