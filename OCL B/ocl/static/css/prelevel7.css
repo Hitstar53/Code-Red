@@ -3,11 +3,11 @@ body {
 }
 
 .text-wrapper {
-  width: 70%;
+  width: 80%;
   height: 50%;
   position: absolute;
   color: #009a22;
-  transform: translate(20%, 50%);
+  transform: translate(12%, 50%);
   font-family: 'Anonymous Pro', monospace;
   font-size: 24px;
   font-weight: 700;
@@ -18,13 +18,5 @@ body {
 }
 
 #next {
-  position: absolute;
-  width: 130px;
-  left: 50%;
-  transform: translate(-50%);
-  height: 45px;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
+  width: 120px;
 }

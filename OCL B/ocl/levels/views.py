@@ -22,6 +22,10 @@ def level5(request):
 def level6(request):
     return render(request, 'levels/level6.html')
 
+def level7(request):
+    return render(request, 'levels/level7.html')
+
+#pre levels
 def prelevel1(request):
     return render(request, 'levels/pre_level1.html')
 
@@ -40,9 +44,7 @@ def prelevel5(request):
 def prelevel6(request):
     return render(request, 'levels/pre_level6.html')
 
-def prebomb(request):
-    return render(request, 'levels/prebomb.html')
+def prelevel7(request):
+    return render(request, 'levels/pre_level7.html')
 
-def bomb(request):
-    return render(request, 'levels/bomb.html')
 
