@@ -23,7 +23,6 @@ body {
     left: 50%;
     height: 45px;
     font-size: 18px;
-    font-weight: 500;
     cursor: pointer;
     transition: 0.2s ease-in-out;
 }
