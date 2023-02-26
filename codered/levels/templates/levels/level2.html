@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  Can you Really Click Me?
+{% endblock %}
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/level2.css' %}">
+  <h2>Level 2</h2>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <button id="button">Click me</button>
+  </form>
+{% endblock %}
+{% block typing %}
+<link rel="stylesheet" href="{% static 'css/level2.css' %}">
+<div class = "text-wrapper">
+  <p>Click the button to move on to the next level, Hint: "Warmer and colder"</p>
+</div>  
+{% endblock %}
+{% block hint %}
+  <span>
+    "When distance is the game, seek the warmth for the short, but for the long, it's the cold that will bring the gain."
+  </span>
+{% endblock %}
+{% block script %}
+  <script src="{% static 'js/level2.js' %}"></script>
+{% endblock %}

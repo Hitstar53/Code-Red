@@ -1,0 +1,24 @@
+.title{
+    position: absolute;
+    transform: translate(350%, 70%);
+    font-size: 3rem;
+    font-weight: 600;
+    color: white;
+}
+
+.link-wrapper{
+    position: absolute;
+    transform: translate(365%, 700%);
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.link-wrapper a{
+    color: #009a22;
+    text-decoration: none;
+}
+
+a#code2{
+    display: none;
+}

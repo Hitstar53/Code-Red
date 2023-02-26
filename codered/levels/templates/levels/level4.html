@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  Decipher This
+  {% endblock %}
+  {% block content %}
+  <link rel="stylesheet" href="{% static 'css/level4.css' %}"> 
+  <div class="head-wrapper">  
+    <h1 class = "title">Level 4</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">AdvEnteDgE</h5>
+                        <p class="card-text">
+                            By the year 66', 68 sleeper cells migrated to Mumbai. By the year 84' the number rose to 83.
+                            <br>
+                            <br>
+                            Of the already existing, 65 were posted in the western region, 68 were posted in the central region and 73 in the
+                            southern.
+                        </p>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="number" class="form-control" placeholder="Train No." name="train1">
+                                <button type="submit" class="btn btn-primary">Go</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">AGilEgenIe</h5>
+                        <p class="card-text">
+                            By the year 66', 68 sleeper cells migrated to Mumbai. By the year 84' the number rose to 83.
+                            <br>
+                            <br>
+                            Of the already existing, 78 were posted in the western region, 90 were posted in the central region and 77 in the
+                            southern.
+                        </p>
+                        <form method="POST">
+                            {% csrf_token %}
+                        <div class="form-group">
+                            <input type="number" class="form-control" placeholder="Train No." name="train1">
+                            <button type="submit" class="btn btn-primary">Go</a>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card" {% if request.resolver_match.kwargs.verify == 'train1' %}correct flip{% endif %}>
+                    <div class="card-body">
+                        <h5 class="card-title">HiJinx</h5>
+                        <p class="card-text">
+                            In the year 67', 83 sleeper cells migrated to Mumbai. In the year 77' another 84 were brought to this city.
+                            <br>
+                            <br>
+                            Of the already existing, 83 were posted in the western region, 66 were posted in the central region and 67 in the southern.
+                        </p>
+                        <form method="POST">
+                            {% csrf_token %}
+                        <div class="form-group">
+                            <input type="number" class="form-control" placeholder="Train No." name="train1">
+                            <button type="submit" class="btn btn-primary">Go</a>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">UniJoint</h5>
+                        <p class="card-text">
+                            In the year 67', 83 sleeper cells migrated to Mumbai. In the year 77' another 84 were brought to this city.
+                            <br>
+                            <br>
+                            Of the already existing, 72 were posted in the western region, 87 were posted in the central region and 72 in the
+                            southern.
+                        </p>
+                        <form method="POST">
+                            {% csrf_token %}
+                        <div class="form-group">
+                            <input type="number" class="form-control" placeholder="Train No." name="train1">
+                            <button type="submit" class="btn btn-primary">Go</a>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        {% endblock %}
+        {% block hint %}
+        <p>
+            1-A1Z26-2-ASCII
+        </p>
+        {% endblock %}
+<!-- {% block script %}
+    <script src="{% static 'js/level4.js' %}"></script>
+{% endblock %} -->

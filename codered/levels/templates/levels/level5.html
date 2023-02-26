@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Invisiblity.
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/level5.css' %}">
+<h1 class="title">Hidden</h1>
+    <div class = "link-wrapper">
+        <a href="password1.jpeg" id="code1" download>DOWNLOAD INTEL</a>
+        <br>
+        <a href="manual.pdf" id="code2" download>CORRECT DOWNLOAD LINK</a>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Proceed</button>
+    </form>
+{% endblock %}
+{% block hint %}
+<p>
+    Nokia has the strongest keypad.
+</p>
+{% endblock %}
+{% block script %}
+<script src="{% static 'js/level5.js' %}"></script>
+{% endblock %}

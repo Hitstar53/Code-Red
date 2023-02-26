@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Guess the Location Part 2.
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/level6.css' %}">
+<h1 class = "title-class">Level 6</h1>
+<div class="cards-container">
+    <div class="card" onclick="flipCard(this)">
+        <div class="card-front">
+            <h2>Click</h2>
+        </div>
+        <div class="card-back">
+            <img src="{% static 'assets/card1.png' %}" alt="">
+        </div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+        <div class="card-front">
+            <h2>To</h2>
+        </div>
+        <div class="card-back">
+            <img src="{% static 'assets/card2.png' %}" alt="">
+        </div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+        <div class="card-front">
+            <h2>Reveal</h2>
+        </div>
+        <div class="card-back">
+            <img src="{% static 'assets/card3.png' %}" alt="">
+        </div>
+    </div>
+</div>
+<div class="text-wrapper" style="width: 50%; margin-left: 25rem;">
+    <p>
+        The truck's tires started to skid as the driver commuted home from his domestic job site.
+    </p>
+</div>
+<div class="container">
+    <form>
+        <input type="text" id="location" class="input-field" placeholder="Location" name="team_name" required>
+        <button class="start-button">START</button>
+    </form>
+</div>
+{% endblock %}
+{% block hint %}
+<p>
+    Computer Language.
+</p>
+{% endblock %}
+{% block script %}
+<script src="{% static 'js/level6.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    /* width: 100vw;
+    height: 100vh; */
+}
+
+h2 {
+    position: absolute;
+    transform: translate(430%, 100%);
+    color: lightgray;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    background: none;
+}
+
+/* p {
+    position: absolute;
+    display: block;
+    transform: translate(450%, 350%);
+    color: lightgray;
+    font-size: 20px;
+    text-align: center;
+    opacity: 0.7;
+} */
+
+button {
+    background-color:  blue;
+    color: lightgray;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+}
+
+button:hover {
+    background-color: indigo;
+}
+
+#button {
+    position: absolute;
+    left: 700px;
+    top: 160px;
+    transition: all 0.5s ease;
+}
+
+
+#button.nearest {
+    background-color: darkred;
+}
+#button.near {
+    background-color: orangered;
+}
+#button.closer {
+    background-color: green;
+}
+#button.far {
+    background-color: blue;
+}
+.moved {
+    left: 200px;
+    top: 200px;
+}
+.word{
+    display: block;
+    margin: 0 auto;
+}
+.text-wrapper{
+    position: absolute;
+    width: 70%;
+    height: 50%;
+    color: #009a22;
+    transform: translate(30%, 30%);
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 24px;
+    font-weight: 700;
+    z-index: -5;
+}
