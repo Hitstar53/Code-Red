@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'levels.apps.LevelsConfig',
     'register.apps.RegisterConfig',
-    'crispy_forms',
-    "crispy_bootstrap5",
+    # 'crispy_forms',
+    # "crispy_bootstrap5",
 ]
 
 MIDDLEWARE = [
