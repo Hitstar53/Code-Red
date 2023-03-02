@@ -24,6 +24,7 @@
                         <form method="POST">
                             {% csrf_token %}
                             <div class="form-group">
+                                <input type="hidden" name="form_id" value="form1">
                                 <input type="number" class="form-control" placeholder="Train No." name="train1">
                                 <button type="submit" class="btn btn-primary">Go</a>
                             </div>
@@ -34,7 +35,7 @@
             <div class="col-sm-3">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">AGilEgenIe</h5>
+                        <h5 class="card-title">LogEn</h5>
                         <p class="card-text">
                             By the year 66', 68 sleeper cells migrated to Mumbai. By the year 84' the number rose to 83.
                             <br>
@@ -45,7 +46,8 @@
                         <form method="POST">
                             {% csrf_token %}
                         <div class="form-group">
-                            <input type="number" class="form-control" placeholder="Train No." name="train1">
+                            <input type="hidden" name="form_id" value="form2">
+                            <input type="number" class="form-control" placeholder="Train No." name="train2">
                             <button type="submit" class="btn btn-primary">Go</a>
                         </div>
                         </form>
@@ -65,7 +67,8 @@
                         <form method="POST">
                             {% csrf_token %}
                         <div class="form-group">
-                            <input type="number" class="form-control" placeholder="Train No." name="train1">
+                            <input type="hidden" name="form_id" value="form3">
+                            <input type="number" class="form-control" placeholder="Train No." name="train3">
                             <button type="submit" class="btn btn-primary">Go</a>
                         </div>
                         </form>
@@ -86,7 +89,8 @@
                         <form method="POST">
                             {% csrf_token %}
                         <div class="form-group">
-                            <input type="number" class="form-control" placeholder="Train No." name="train1">
+                            <input type="hidden" name="form_id" value="form4">
+                            <input type="number" class="form-control" placeholder="Train No." name="train4">
                             <button type="submit" class="btn btn-primary">Go</a>
                         </div>
                         </form>

@@ -32,15 +32,17 @@ Guess the Location Part 2.
         </div>
     </div>
 </div>
-<div class="text-wrapper" style="width: 50%; margin-left: 25rem;">
+<div class="text-wrapper">
     <p>
         The truck's tires started to skid as the driver commuted home from his domestic job site.
     </p>
 </div>
 <div class="container">
-    <form>
+    <form method="POST">
+        {% csrf_token %}
         <input type="text" id="location" class="input-field" placeholder="Location" name="team_name" required>
-        <button class="start-button">START</button>
+        <br>
+        <button class="start-button">SUBMIT</button>
     </form>
 </div>
 {% endblock %}

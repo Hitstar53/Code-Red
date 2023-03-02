@@ -11,10 +11,15 @@ def home(request):
 def level1(request):
     if request.method == 'POST':
         #print({'request':request.POST})
+        un=request.POST.get('username')
+        check=request.user.username
+        print(check,un)
         password = request.POST.get('pswrd')
         print(password)
-        if password == 'abc@123':
+        if password == 'abc@123' and check==un:
             #user filter by Agid, login, perms
+            a=Agent(Agid=un)
+            a.save()
             group=Group.objects.get(name='Level 2')
             group.user_set.add(request.user)
             return redirect('prelevel2')
@@ -61,12 +66,57 @@ def level4(request, **kwargs):
     user=request.user.groups.filter(name='Level 4').exists()
     if user:
         if request.method == 'POST':
-            t1=request.POST.get('train1')
-            t2=request.POST.get('train2')
-            t3=request.POST.get('train3')
-            t4=request.POST.get('train4')
-            if t1=="123":#check if it is already correct
-                return render(request,'levels/level4.html')
+            t1=request.POST.get('form_id')
+            if t1=="form1":#check if it is already correct
+                train=request.POST.get('train1')
+                if train=="82901":
+                    print("Correct Train 1")
+                    #set a to True
+                    us = request.user.username
+                    ag=Agent.objects.get(Agid=us)
+                    ag.a=True
+                    ag.save()
+                    return render(request,'levels/level4.html',{'form1':ag.a, 'form2':ag.b, 'form3':ag.c, 'form4':ag.d})
+                else:
+                    print("Wrong Train 1")
+                    return render(request,'levels/level4.html',{'form1':ag.a, 'form2':ag.b, 'form3':ag.c, 'form4':ag.d})
+            elif t1=="form2":
+                train=request.POST.get('train2')
+                if train=="19019":
+                    print("Correct Train 2")
+                    us = request.user.username
+                    ag=Agent.objects.get(Agid=us)
+                    ag.b=True
+                    ag.save()
+                    return render(request,'levels/level4.html',{'form1':ag.a, 'form2':ag.b, 'form3':ag.c, 'form4':ag.d})
+                else:
+                    print("Wrong Train 2")
+                    return render(request,'levels/level4.html',{'form1':ag.a, 'form2':ag.b, 'form3':ag.c, 'form4':ag.d})
+            elif t1=="form3":
+                train=request.POST.get('train3')
+                if train=="11301":
+                    print("Correct Train 3")
+                    us = request.user.username
+                    ag=Agent.objects.get(Agid=us)
+                    ag.c=True
+                    ag.save()
+                    return render(request,'levels/level4.html',{'form1':ag.a, 'form2':ag.b, 'form3':ag.c, 'form4':ag.d})
+                else:
+                    print("Wrong Train 3")
+                    return render(request,'levels/level4.html',{'form1':ag.a, 'form2':ag.b, 'form3':ag.c, 'form4':ag.d})
+            elif t1=="form4":
+                train=request.POST.get('train4')
+                if train=="12809":
+                    print("Correct Train 4")
+                    us = request.user.username
+                    ag=Agent.objects.get(Agid=us)
+                    ag.d=True
+                    ag.save()
+                    return render(request,'levels/level4.html',{'form1':ag.a, 'form2':ag.b, 'form3':ag.c, 'form4':ag.d})
+                else:
+                    print("Wrong Train 4")
+                    return render(request,'levels/level4.html',{'form1':ag.a, 'form2':ag.b, 'form3':ag.c, 'form4':ag.d})
+            
             #change so that user added to group only after all 4 train nos are correct
             group=Group.objects.get(name='Level 5')
             group.user_set.add(request.user)
@@ -75,7 +125,6 @@ def level4(request, **kwargs):
             return render(request, 'levels/level4.html')
     else:
         return redirect('level3')
-
 def level5(request):
     user=request.user.groups.filter(name='Level 5').exists()
     if user:
@@ -93,11 +142,11 @@ def level6(request):
     user=request.user.groups.filter(name='Level 6').exists()
     if user:
         if request.method == 'POST':
-            loc=request.POST.get('location')
+            loc=request.POST.get('team_name')
             if loc=="SPIT":
                 group=Group.objects.get(name='Level 7')
                 group.user_set.add(request.user)
-                return redirect('level7')
+                return redirect('prelevel7')
             else:
                 print("Nope")
             

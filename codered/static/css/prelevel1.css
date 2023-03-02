@@ -1,7 +1,6 @@
 body {
     background: linear-gradient(145deg, #1a1a1a 50%, #404040 115%);
 }
-
 .text-wrapper {
     width: 80%;
     height: 50%;
@@ -11,6 +10,19 @@ body {
     font-family: 'Anonymous Pro', monospace;
     font-size: 22px;
     font-weight: 700;
+}
+@media(max-width: 1440px)
+{
+    .text-wrapper {
+        width: 80%;
+        height: 62%;
+        position: absolute;
+        color: #009a22;
+        transform: translate(10%, 30%);
+        font-family: 'Anonymous Pro', monospace;
+        font-size: 22px;
+        font-weight: 700;
+    }
 }
 
 #hint {

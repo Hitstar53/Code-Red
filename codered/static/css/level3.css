@@ -40,7 +40,7 @@ form * {
 
 form h3 {
     font-size: 32px;
-    font-weight: 500;
+    font-weight: 700;
     line-height: 42px;
     text-align: center;
 }
@@ -49,7 +49,7 @@ form p {
     position: fixed;
     opacity: 0.6;
     left: 37%;
-    margin-left: -100px;
+    margin-left: -140px;
 }
 
 .map {
@@ -119,3 +119,23 @@ button {
     text-align: center;
 }
 
+@media(max-width: 1440px)
+{
+    form {
+        height: 460px;
+        width: 550px;
+        background-color: rgba(255, 255, 255, 0.13);
+        position: absolute;
+        transform: translate(-30%, -50%);
+        top: 50%;
+        left: 50%;
+        border-radius: 50px;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+        padding: 30px 60px;
+    }
+    .word{
+        margin-left: -150px;
+    }
+}

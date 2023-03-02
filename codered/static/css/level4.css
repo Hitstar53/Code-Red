@@ -30,6 +30,12 @@ body {
     box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
 }
 
+@media (max-width: 1440px) {
+    .card {
+        height: 370px;
+    }
+}
+
 .card-body {
     display: flex;
     flex-direction: column;

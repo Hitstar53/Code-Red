@@ -222,4 +222,4 @@ const typing = setInterval(() => {
   } else {
     clearInterval(typing);
   }
-}, 50);
+}, 20);

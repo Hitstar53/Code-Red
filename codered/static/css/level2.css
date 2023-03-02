@@ -20,7 +20,7 @@ h2 {
 /* p {
     position: absolute;
     display: block;
-    transform: translate(450%, 350%);
+    transform: translate(300%, 350%);
     color: lightgray;
     font-size: 20px;
     text-align: center;
@@ -81,4 +81,35 @@ button:hover {
     font-size: 24px;
     font-weight: 700;
     z-index: -5;
+}
+@media(max-width: 1440px)
+{
+    h2 {
+        position: absolute;
+        transform: translate(370%, 100%);
+        color: lightgray;
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+        background: none;
+    }
+    
+    .text-wrapper{
+        position: absolute;
+        width: 80%;
+        height: 50%;
+        color: #009a22;
+        transform: translate(15%, 30%);
+        font-family: 'Anonymous Pro', monospace;
+        font-size: 24px;
+        font-weight: 700;
+        z-index: -5;
+    }
+
+    #button {
+        position: absolute;
+        left: 600px;
+        top: 160px;
+        transition: all 0.5s ease;
+    }
 }

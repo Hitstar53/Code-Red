@@ -27,3 +27,16 @@ body {
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
+
+@media(max-width: 1440px) {
+  .text-wrapper {
+    width: 80%;
+    height: 62%;
+    position: absolute;
+    color: #009a22;
+    transform: translate(10%, 30%);
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 22px;
+    font-weight: 700;
+  }
+}

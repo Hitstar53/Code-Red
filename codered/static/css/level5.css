@@ -7,8 +7,10 @@
 }
 
 .link-wrapper{
+    height: 200px;
+    width: 400px;
     position: absolute;
-    transform: translate(365%, 700%);
+    transform: translate(170%, 100%);
     font-family: 'Anonymous Pro', monospace;
     font-size: 1.5rem;
     font-weight: 700;
@@ -21,4 +23,38 @@
 
 a#code2{
     display: none;
+}
+
+.button-css{
+    position: absolute;
+    transform: translate(610%, 800%);
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+@media (max-width: 1440px) {
+    .link-wrapper{
+        height: 200px;
+        width: 400px;
+        position: absolute;
+        transform: translate(145%, 100%);
+        font-family: 'Anonymous Pro', monospace;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+    .title{
+        position: absolute;
+        transform: translate(300%, 70%);
+        font-size: 3rem;
+        font-weight: 600;
+        color: white;
+    }
+    .button-css{
+        position: absolute;
+        transform: translate(520%, 800%);
+        font-family: 'Anonymous Pro', monospace;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
 }

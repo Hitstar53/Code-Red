@@ -6,7 +6,7 @@ const screenHeight = window.innerHeight;
 var gspot = Math.random() * 500;
 gspot = Math.round(gspot);
 //testing gspot
-console.log(gspot);
+// console.log(gspot);
 button.addEventListener("mousemove", e => {
     const left = parseInt(button.style.left, 10);
     const top = parseInt(button.style.top, 10);
@@ -24,9 +24,9 @@ button.addEventListener("mousemove", e => {
     } else if (newLeft+button.offsetWidth>screenWidth) {
         newLeft = screenWidth-button.offsetWidth;
     }
-    // const distance = Math.sqrt(Math.pow(left-gspot,2) + Math.pow(left-gspot,2));
-    const distance = Math.min(Math.abs(left-gspot), Math.abs(top-gspot));
-    console.log(left, top);
+    const distance = Math.sqrt(Math.pow(left-gspot,2) + Math.pow(left-gspot,2));
+    // const distance = Math.min(Math.abs(left-gspot), Math.abs(top-gspot));
+    // console.log(left, top);
     if (left !== gspot && top !== gspot) {
         const width = window.innerWidth;
         const height = window.innerHeight;
