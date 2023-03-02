@@ -3,10 +3,10 @@ body {
 }
 .text-wrapper {
   width: 80%;
-  height: 50%;
+  height: 60%;
   position: absolute;
   color: #009a22;
-  transform: translate(15%, 50%);
+  transform: translate(15%, 25%);
   font-family: 'Anonymous Pro', monospace;
   font-size: 24px;
   font-weight: 700;
@@ -18,7 +18,7 @@ body {
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50%, 200%);
   height: 45px;
   font-size: 18px;
   cursor: pointer;
