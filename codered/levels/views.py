@@ -82,10 +82,11 @@ def level4(request, **kwargs):
                     return render(request,'levels/level4.html',{'form1':ag.a, 'form2':ag.b, 'form3':ag.c, 'form4':ag.d})
             elif t1=="form2":
                 train=request.POST.get('train2')
+                us = request.user.username
+                ag=Agent.objects.get(Agid=us)
                 if train=="19019":
                     print("Correct Train 2")
-                    us = request.user.username
-                    ag=Agent.objects.get(Agid=us)
+                    
                     ag.b=True
                     ag.save()
                     return render(request,'levels/level4.html',{'form1':ag.a, 'form2':ag.b, 'form3':ag.c, 'form4':ag.d})
@@ -94,10 +95,11 @@ def level4(request, **kwargs):
                     return render(request,'levels/level4.html',{'form1':ag.a, 'form2':ag.b, 'form3':ag.c, 'form4':ag.d})
             elif t1=="form3":
                 train=request.POST.get('train3')
+                us = request.user.username
+                ag=Agent.objects.get(Agid=us)
                 if train=="11301":
                     print("Correct Train 3")
-                    us = request.user.username
-                    ag=Agent.objects.get(Agid=us)
+                    
                     ag.c=True
                     ag.save()
                     return render(request,'levels/level4.html',{'form1':ag.a, 'form2':ag.b, 'form3':ag.c, 'form4':ag.d})
@@ -106,10 +108,11 @@ def level4(request, **kwargs):
                     return render(request,'levels/level4.html',{'form1':ag.a, 'form2':ag.b, 'form3':ag.c, 'form4':ag.d})
             elif t1=="form4":
                 train=request.POST.get('train4')
+                us = request.user.username
+                ag=Agent.objects.get(Agid=us)
                 if train=="12809":
                     print("Correct Train 4")
-                    us = request.user.username
-                    ag=Agent.objects.get(Agid=us)
+                    
                     ag.d=True
                     ag.save()
                     return render(request,'levels/level4.html',{'form1':ag.a, 'form2':ag.b, 'form3':ag.c, 'form4':ag.d})
