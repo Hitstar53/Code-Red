@@ -10,7 +10,7 @@ cards.forEach(card => {
     cardTitles.push(cardTitle.innerHTML);
 })
 //commenting this shit out
-
+/*
 if("{{form1}}"=='1')
 {
     cards[0].classList.add('flip');
@@ -50,3 +50,4 @@ if("{{form4}}"=='1')
     const fg = cards[3].querySelector('.form-group');
     fg.style.display = 'none';
 }
+*/

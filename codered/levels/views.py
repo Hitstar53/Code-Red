@@ -76,10 +76,6 @@ def level4(request, **kwargs):
                     #set a to True
                     ag.a=True
                     ag.save()
-                    return render(request,'levels/level4.html',{'form1':ag.a, 'form2':ag.b, 'form3':ag.c, 'form4':ag.d})
-                else:
-                    print("Wrong Train 1")
-                    return render(request,'levels/level4.html',{'form1':ag.a, 'form2':ag.b, 'form3':ag.c, 'form4':ag.d})
             elif t1=="form2":
                 train=request.POST.get('train2')
                 us = request.user.username
@@ -89,10 +85,8 @@ def level4(request, **kwargs):
                     
                     ag.b=True
                     ag.save()
-                    return render(request,'levels/level4.html',{'form1':ag.a, 'form2':ag.b, 'form3':ag.c, 'form4':ag.d})
                 else:
                     print("Wrong Train 2")
-                    return render(request,'levels/level4.html',{'form1':ag.a, 'form2':ag.b, 'form3':ag.c, 'form4':ag.d})
             elif t1=="form3":
                 train=request.POST.get('train3')
                 us = request.user.username
@@ -102,10 +96,7 @@ def level4(request, **kwargs):
                     
                     ag.c=True
                     ag.save()
-                    return render(request,'levels/level4.html',{'form1':ag.a, 'form2':ag.b, 'form3':ag.c, 'form4':ag.d})
-                else:
-                    print("Wrong Train 3")
-                    return render(request,'levels/level4.html',{'form1':ag.a, 'form2':ag.b, 'form3':ag.c, 'form4':ag.d})
+                    
             elif t1=="form4":
                 train=request.POST.get('train4')
                 us = request.user.username
@@ -115,15 +106,25 @@ def level4(request, **kwargs):
                     
                     ag.d=True
                     ag.save()
-                    return render(request,'levels/level4.html',{'form1':ag.a, 'form2':ag.b, 'form3':ag.c, 'form4':ag.d})
-                else:
-                    print("Wrong Train 4")
-                    return render(request,'levels/level4.html',{'form1':ag.a, 'form2':ag.b, 'form3':ag.c, 'form4':ag.d})
+            ca=""
+            cb=""
+            cc=""
+            cd=""
+            if ag.a and ag.b and ag.c and ag.d:
+                group=Group.objects.get(name='Level 5')
+                group.user_set.add(request.user)
+                return redirect('prelevel5')
+            if ag.a:
+                ca="correct flip"
+            if ag.b:
+                cb="correct flip"
+            if ag.c:
+                cc="correct flip"
+            if ag.d:
+                cd="correct flip"
+            return render(request,'levels/level4.html',{'form1':ca, 'form2':cb, 'form3':cc, 'form4':cd})
             
             #change so that user added to group only after all 4 train nos are correct
-            group=Group.objects.get(name='Level 5')
-            group.user_set.add(request.user)
-            return redirect('prelevel5')
         else:
             return render(request, 'levels/level4.html')
     else:
