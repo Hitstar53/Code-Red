@@ -1,7 +1,8 @@
 //get all 4 cards and buttons
 const cards = document.querySelectorAll('.card');
 const btns = document.querySelectorAll('.btn');
-
+var a='{{form1}}'
+console.log(a)
 //store html of card titles
 const cardTitles = [];
 cards.forEach(card => {

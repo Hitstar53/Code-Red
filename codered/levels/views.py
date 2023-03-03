@@ -69,11 +69,11 @@ def level4(request, **kwargs):
             t1=request.POST.get('form_id')
             if t1=="form1":#check if it is already correct
                 train=request.POST.get('train1')
+                us = request.user.username
+                ag=Agent.objects.get(Agid=us)
                 if train=="82901":
                     print("Correct Train 1")
                     #set a to True
-                    us = request.user.username
-                    ag=Agent.objects.get(Agid=us)
                     ag.a=True
                     ag.save()
                     return render(request,'levels/level4.html',{'form1':ag.a, 'form2':ag.b, 'form3':ag.c, 'form4':ag.d})
