@@ -9,15 +9,14 @@ def home(request):
     return render(request, 'levels/home.html')
 
 def level1(request):
+    hint = "Hidden in plain sight, the key to unlocking my secrets lies within the code written in black and white."
     if request.method == 'POST':
-        #print({'request':request.POST})
         un=request.POST.get('username')
         check=request.user.username
         print(check,un)
         password = request.POST.get('pswrd')
         print(password)
         if password == 'abc@123' and check==un:
-            #user filter by Agid, login, perms
             a=Agent(Agid=un)
             a.save()
             group=Group.objects.get(name='Level 2')
@@ -174,7 +173,7 @@ def level7(request):
 
 #pre levels
 def prelevel1(request):
-    return render(request, 'levels/pre_level1.html')
+    return render(request, 'levels/pre_level1.html', )
 
 def prelevel2(request):
     user=request.user.groups.filter(name='Level 2').exists()

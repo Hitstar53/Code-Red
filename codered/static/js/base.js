@@ -175,6 +175,11 @@ function stopwatch(elementName) {
         }
         if (seconds > 9) {
             appendSeconds.innerHTML = seconds;
+            btn.disabled = false;
+            btn.style.border = "none";
+            btn.style.color = "black";
+            btn.style.backgroundColor = "yellow";
+            btn.style.cursor = "pointer";
         }
         if (seconds > 59) {
             minutes++;
@@ -182,13 +187,13 @@ function stopwatch(elementName) {
             seconds = 0;
             appendSeconds.innerHTML = "0" + 0;
         }
-        if (minutes>0) {
-            btn.disabled = false;
-            btn.style.border = "none";
-            btn.style.color = "black";
-            btn.style.backgroundColor = "yellow";
-            btn.style.cursor = "pointer";
-        }
+        // if (minutes>0) {
+        //     btn.disabled = false;
+        //     btn.style.border = "none";
+        //     btn.style.color = "black";
+        //     btn.style.backgroundColor = "yellow";
+        //     btn.style.cursor = "pointer";
+        // }
         if (minutes < 9) {
             appendMinutes.innerHTML = "0" + minutes;
         }

@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-form {
+#levelform {
     height: 470px;
     width: 360px;
     background-color: rgba(255, 255, 255, 0.13);
@@ -21,7 +21,7 @@ form {
     z-index: 3;
 }
 
-form * {
+#levelform * {
     font-family: 'Poppins', sans-serif;
     color: #ffffff;
     letter-spacing: 0.5px;
@@ -29,14 +29,14 @@ form * {
     border: none;
 }
 
-form h3 {
+#levelform h3 {
     font-size: 32px;
     font-weight: 500;
     line-height: 42px;
     text-align: center;
 }
 
-form p {
+#levelform p {
     position: fixed;
     font-size: 18px;
     top: 21%;

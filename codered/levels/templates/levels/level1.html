@@ -10,7 +10,7 @@
     <div class="shape"></div>
     <div class="shape"></div>
   </div>
-  <form method="POST">
+  <form id="levelform" method="POST">
     {% csrf_token %}
     <h3>Level 1</h3>
     <p class="word" style="text-align:center;opacity:0.5;margin-top: -20px;"></p>
@@ -30,7 +30,7 @@
   {% endblock %}
   {% block hint %}
   <p>
-    “Hidden in plain sight, the key to unlocking my secrets lies within the code written in black and white."
+    ...
   </p>
   {% endblock %}
   {% block script %}
