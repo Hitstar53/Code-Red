@@ -11,6 +11,9 @@ def home(request):
 def level1(request):
     hint = "Hidden in plain sight, the key to unlocking my secrets lies within the code written in black and white."
     if request.method == 'POST':
+        t1=request.POST.get('form_id')
+        if t1=="hint_form":
+            return render(request, 'levels/level1.html', {'hints':hint})
         un=request.POST.get('username')
         check=request.user.username
         print(check,un)
