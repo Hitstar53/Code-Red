@@ -163,29 +163,94 @@ function countdown(elementName) {
             mins = time.getUTCMinutes();
             element.innerHTML = (twoDigits(hours) ? twoDigits(hours) + ':' + twoDigits(mins) : mins) + ':' + twoDigits(time.getUTCSeconds());
             setTimeout(updateTimer, time.getUTCMilliseconds() + 500);
-            // Save end time to session storage
+            
             sessionStorage.setItem('endTime', endTime);
         }
     }
     element = document.getElementById(elementName);
-    // Check if endTime exists in session storage, if not, set new endTime
+  
     endTime = sessionStorage.getItem('endTime') || (+new Date) + 1000 * 60 * 60 * 2;
     updateTimer();
 }
 
 
+// function stopwatch(elementName) {
+//     //build a stopwatch that keeps going till a stop function is not called
+//     var minutes = 00;
+//     var seconds = 00;
+//     var tens = 00;
+//     var appendTens = document.getElementById("tens")
+//     var appendSeconds = document.getElementById("seconds")
+//     var appendMinutes = document.getElementById("minutes")
+//     const btn = document.getElementById("hint");
+//     var Interval;
+//     Interval = setInterval(startTimer, 10);
+//     //generate a similar function but it should also display minutes
+//     function startTimer() {
+//         tens++;
+//         if (tens <= 9) {
+//             appendTens.innerHTML = "0" + tens;
+//         }
+//         if (tens > 9) {
+//             appendTens.innerHTML = tens;
+//         }
+//         if (tens > 99) {
+//             seconds++;
+//             appendSeconds.innerHTML = "0" + seconds;
+//             tens = 0;
+//             appendTens.innerHTML = "0" + 0;
+//         }
+//         if (seconds > 9) {
+//             appendSeconds.innerHTML = seconds;
+//             btn.disabled = false;
+//             btn.style.border = "none";
+//             btn.style.color = "black";
+//             btn.style.backgroundColor = "yellow";
+//             btn.style.cursor = "pointer";
+//         }
+//         if (seconds > 59) {
+//             minutes++;
+//             appendMinutes.innerHTML = "0" + minutes;
+//             seconds = 0;
+//             appendSeconds.innerHTML = "0" + 0;
+//         }
+//         // if (minutes>0) {
+//         //     btn.disabled = false;
+//         //     btn.style.border = "none";
+//         //     btn.style.color = "black";
+//         //     btn.style.backgroundColor = "yellow";
+//         //     btn.style.cursor = "pointer";
+//         // }
+//         if (minutes < 9) {
+//             appendMinutes.innerHTML = "0" + minutes;
+//         }
+//         if (minutes > 9) {
+//             appendMinutes.innerHTML = minutes;
+//         }
+//     }
+// }
+
 function stopwatch(elementName) {
-    //build a stopwatch that keeps going till a stop function is not called
-    var minutes = 00;
-    var seconds = 00;
-    var tens = 00;
+    
+    if (sessionStorage.getItem('stopwatch-url') !== window.location.href) {
+        sessionStorage.removeItem('stopwatch-minutes');
+        sessionStorage.removeItem('stopwatch-seconds');
+        sessionStorage.removeItem('stopwatch-tens');
+        sessionStorage.setItem('stopwatch-url', window.location.href);
+    }
+  
+  
+    var minutes = parseInt(sessionStorage.getItem('stopwatch-minutes')) || 0;
+    var seconds = parseInt(sessionStorage.getItem('stopwatch-seconds')) || 0;
+    var tens = parseInt(sessionStorage.getItem('stopwatch-tens')) || 0;
     var appendTens = document.getElementById("tens")
     var appendSeconds = document.getElementById("seconds")
     var appendMinutes = document.getElementById("minutes")
     const btn = document.getElementById("hint");
     var Interval;
     Interval = setInterval(startTimer, 10);
-    //generate a similar function but it should also display minutes
+    
+  
     function startTimer() {
         tens++;
         if (tens <= 9) {
@@ -214,21 +279,21 @@ function stopwatch(elementName) {
             seconds = 0;
             appendSeconds.innerHTML = "0" + 0;
         }
-        // if (minutes>0) {
-        //     btn.disabled = false;
-        //     btn.style.border = "none";
-        //     btn.style.color = "black";
-        //     btn.style.backgroundColor = "yellow";
-        //     btn.style.cursor = "pointer";
-        // }
         if (minutes < 9) {
             appendMinutes.innerHTML = "0" + minutes;
         }
         if (minutes > 9) {
             appendMinutes.innerHTML = minutes;
         }
+        
+        sessionStorage.setItem('stopwatch-minutes', minutes);
+        sessionStorage.setItem('stopwatch-seconds', seconds);
+        sessionStorage.setItem('stopwatch-tens', tens);
     }
 }
+
+
+
 
 countdown("2h-countdown");
 stopwatch("stopwatch");
