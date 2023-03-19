@@ -28,9 +28,10 @@ def level1(request):
         else:
             print('Incorrect Password')
             messages.info(request, 'Incorrect Password')
-    return render(request, 'levels/level1.html')
+    return render(request, 'levels/level1.html', {'hints':hint})
 
 def level2(request):
+    hint = "When distance is the game, seek the warmth for the short, but for the long, it's the cold that will bring the gain."
     user=request.user.groups.filter(name='Level 2').exists()
     if user:
         print('User is in Level 2')
@@ -39,11 +40,12 @@ def level2(request):
             group.user_set.add(request.user)
             return redirect('prelevel3')
         else:
-            return render(request, 'levels/level2.html')
+            return render(request, 'levels/level2.html', {'hints':hint})
     else:
         return redirect('level1')
 
 def level3(request):
+    hint = "Time is a factor!"
     user=request.user.groups.filter(name='Level 3').exists()
     if user:
         if request.method == 'POST':
@@ -60,11 +62,12 @@ def level3(request):
                 return redirect('level3')
             
         else:
-            return render(request, 'levels/level3.html')
+            return render(request, 'levels/level3.html', {'hints':hint})
     else:
         return redirect('level2')
 
 def level4(request, **kwargs):
+    hint = "1-A1Z26-2-ASCII"
     user=request.user.groups.filter(name='Level 4').exists()
     if user:
         if request.method == 'POST':
@@ -124,14 +127,15 @@ def level4(request, **kwargs):
                 cc="correct flip"
             if ag.d:
                 cd="correct flip"
-            return render(request,'levels/level4.html',{'form1':ca, 'form2':cb, 'form3':cc, 'form4':cd})
+            return render(request,'levels/level4.html',{'form1':ca, 'form2':cb, 'form3':cc, 'form4':cd, 'hints':hint})
             
             #change so that user added to group only after all 4 train nos are correct
         else:
-            return render(request, 'levels/level4.html')
+            return render(request, 'levels/level4.html', {'hints':hint})
     else:
         return redirect('level3')
 def level5(request):
+    hint = "Nokia has the strongest keypad."
     user=request.user.groups.filter(name='Level 5').exists()
     if user:
         if request.method == 'POST':
@@ -140,11 +144,12 @@ def level5(request):
             return redirect('prelevel6')
             
         else:
-            return render(request, 'levels/level5.html')
+            return render(request, 'levels/level5.html', {'hints':hint})
     else:
         return redirect('level4')
 
 def level6(request):
+    hint = "Computer Language."
     user=request.user.groups.filter(name='Level 6').exists()
     if user:
         if request.method == 'POST':
@@ -157,7 +162,7 @@ def level6(request):
                 print("Nope")
             
         else:
-            return render(request, 'levels/level6.html')
+            return render(request, 'levels/level6.html', {'hints':hint})
     else:
         return redirect('level5')
 

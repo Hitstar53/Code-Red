@@ -18,14 +18,13 @@
             <div id="2h-countdown"></div>
             <div id="stopwatch"><span id="minutes">00</span>:<span id="seconds">00</span>:<span id="tens">00</span></div>
             <!-- Modal trigger button -->
-            <form method="POST" action="">
-                {% csrf_token %}
+           
                 <input type="hidden" name="form_id" value="hint_form">
-                <button id="hint" data-bs-toggle="modal" data-bs-target="#hintModal" disabled>
+                <button id="hint" data-bs-toggle="modal" data-bs-target="#staticBackdrop" disabled>
                     Hint
                     <i class="fa-solid fa-circle-question"></i>
                 </button>
-            </form>
+            
         </div>
         {% block content %}
         {% endblock %}
@@ -41,7 +40,7 @@
             </button>
         </div> -->
     </div>
-    <div class="modal fade" id="hintModal" tabindex="-1" aria-hidden="true">
+    <!-- <div class="modal fade" id="hintModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
@@ -52,13 +51,30 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="hintbody">
-                    {% block hint %}
-                    {% endblock %}
-                    {{ hints }}
+                    
                 </div>
             </div>
         </div>
+    </div> -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Here's A Hint!!</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {% block hint %}
+        {% endblock %}
+        {{ hints }}
+      </div>
+      <!-- <div class="modal-footer">
+         <button type="button" class="btn btn-danger" id="bt" data-bs-dismiss="modal" name="submit2">Try Again</button> 
+      </div> -->
     </div>
+  </div>
+</div>
     <script src="{% static 'js/base.js' %}"></script>
     {% block script %}
     {% endblock %}
