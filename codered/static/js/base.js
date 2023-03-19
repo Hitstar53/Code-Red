@@ -125,7 +125,30 @@ var refreshDuration = 10000;
         
 // End of Low-poly background animations
 
-function countdown(elementName, hours, minutes, seconds) {
+
+// function countdown(elementName, hours, minutes, seconds) {
+//     var element, endTime, hours, mins, msLeft, time;
+//     function twoDigits(n) {
+//         return (n <= 9 ? "0" + n : n);
+//     }
+//     function updateTimer() {
+//         msLeft = endTime - (+new Date);
+//         if (msLeft < 1000) {
+//             element.innerHTML = "Time is up!";
+//         } else {
+//             time = new Date(msLeft);
+//             hours = time.getUTCHours();
+//             mins = time.getUTCMinutes();
+//             element.innerHTML = (twoDigits(hours) ? twoDigits(hours) + ':' + twoDigits(mins) : mins) + ':' + twoDigits(time.getUTCSeconds());
+//             setTimeout(updateTimer, time.getUTCMilliseconds() + 500);
+//         }
+//     }
+//     element = document.getElementById(elementName);
+//     endTime = (+new Date) + 1000 * (3600 * hours + 60 * minutes + seconds) + 500;
+//     updateTimer();
+// }
+
+function countdown(elementName) {
     var element, endTime, hours, mins, msLeft, time;
     function twoDigits(n) {
         return (n <= 9 ? "0" + n : n);
@@ -140,12 +163,16 @@ function countdown(elementName, hours, minutes, seconds) {
             mins = time.getUTCMinutes();
             element.innerHTML = (twoDigits(hours) ? twoDigits(hours) + ':' + twoDigits(mins) : mins) + ':' + twoDigits(time.getUTCSeconds());
             setTimeout(updateTimer, time.getUTCMilliseconds() + 500);
+            // Save end time to session storage
+            sessionStorage.setItem('endTime', endTime);
         }
     }
     element = document.getElementById(elementName);
-    endTime = (+new Date) + 1000 * (3600 * hours + 60 * minutes + seconds) + 500;
+    // Check if endTime exists in session storage, if not, set new endTime
+    endTime = sessionStorage.getItem('endTime') || (+new Date) + 1000 * 60 * 60 * 2;
     updateTimer();
 }
+
 
 function stopwatch(elementName) {
     //build a stopwatch that keeps going till a stop function is not called
@@ -203,7 +230,7 @@ function stopwatch(elementName) {
     }
 }
 
-countdown("2h-countdown", 2, 0, 0);
+countdown("2h-countdown");
 stopwatch("stopwatch");
 
 // Stopwatch = 10 mins
