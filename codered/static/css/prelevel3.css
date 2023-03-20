@@ -4,10 +4,10 @@ body {
 
 .text-wrapper {
   width: 70%;
-  height: 60%;
+  height: 65%;
   position: absolute;
   color: #009a22;
-  transform: translate(20%, 30%);
+  transform: translate(20%, 25%);
   font-family: 'Anonymous Pro', monospace;
   font-size: 24px;
   font-weight: 700;

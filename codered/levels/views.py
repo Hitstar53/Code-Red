@@ -19,9 +19,13 @@ def level1(request):
         print(check,un)
         password = request.POST.get('pswrd')
         print(password)
-        if password == 'abc@123' and check==un:
-            a=Agent(Agid=un)
-            a.save()
+        if password == 'gsdfys76fds7fds' and check==un:
+            ag = Agent.objects.get(Agid=un)
+            if ag:
+                ag.save()
+            else:
+                a=Agent(Agid=un)
+                a.save()
             group=Group.objects.get(name='Level 2')
             group.user_set.add(request.user)
             return redirect('prelevel2')
@@ -49,10 +53,12 @@ def level3(request):
     user=request.user.groups.filter(name='Level 3').exists()
     if user:
         if request.method == 'POST':
-            x=request.POST.get('x')
-            y=request.POST.get('y')
+            x=float(request.POST.get('x'))
+            x=round(x,3)
+            y=float(request.POST.get('y'))
+            y=round(y,3)
             print(x,y)
-            if x=="1" and y=="2":
+            if x==18.922 and y==72.835:
                 group=Group.objects.get(name='Level 4')
                 group.user_set.add(request.user)
                 return redirect('prelevel4')
@@ -85,7 +91,7 @@ def level4(request, **kwargs):
                 train=request.POST.get('train2')
                 us = request.user.username
                 ag=Agent.objects.get(Agid=us)
-                if train=="19019":
+                if train=="12953":
                     print("Correct Train 2")
                     
                     ag.b=True
