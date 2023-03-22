@@ -30,6 +30,8 @@ ALLOWED_HOSTS = ['*','https://treasure-hunt-production-2015.up.railway.app/','ht
 CSRF_TRUSTED_ORIGINS = [
     'https://treasure-hunt-production-2015.up.railway.app/',
     'https://treasure-hunt-production-2015.up.railway.app',
+    'https://treasure-hunt-production-8b0e.up.railway.app/'
+    'https://treasure-hunt-production-8b0e.up.railway.app'
 ]
 
 
