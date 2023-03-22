@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="{% static 'css/add_user.css' %}">
+    <script src="./index.js" ></script>
+    <title>Add User</title>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Add User</h1>
+        {% for message in messages %}
+            <p class="error">{{ message }}</p>
+        {% endfor %}
+        <form id="formw" method="POST" action="">
+            {% csrf_token %}
+            <label for="usern" >Teamname</label>
+            <input type="text"  id="usern" name="teamname" required/> 
+
+            <label for="pass" >Password</label>
+            <input type="text"  id="pass" name="password" required/>
+
+            <label for="adminpass" >Admin Password</label>
+            <input type="password"  id="pass" name="adminpassword" required/>
+
+            <input type="submit">
+        </form>
+    </div>
+</body>
+</html>
