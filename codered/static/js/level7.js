@@ -660,46 +660,42 @@ if (t.value == "DETONATE") {
   document.getElementById("clickme").addEventListener("click", function () {
     document.querySelector("#indicator3").style.backgroundColor = "green";
   });
-  //listen to hold event
-  document.getElementById("clickme").addEventListener("mousedown", function () {
-    document.querySelector("#indicator3").style.backgroundColor = "red";
-  });
 } else if (t.value == "STOP") {
   document.getElementById("clickme").addEventListener("click", function () {
     document.querySelector("#indicator3").style.backgroundColor = "green";
   });
-  //listen to hold event
-  document.getElementById("clickme").addEventListener("mousedown", function () {
-    document.querySelector("#indicator3").style.backgroundColor = "red";
-  });
 } else if (t.value == "ABORT") {
+  var element = document.querySelector(".timer");
   document.getElementById("clickme").addEventListener("click", function () {
-    document.querySelector("#indicator3").style.backgroundColor = "red";
-  });
-  document.getElementById("clickme").addEventListener("mousedown", function () {
-    document.getElementById("clickme").addEventListener("mouseup", function () {
-      var element = document.querySelector(".timer");
-      const s = element.innerText;
-      console.log(s, "Hello");
-      if (h.value == "#00FF00") {
-        if (s.includes("5")) {
-          document.querySelector("#indicator3").style.backgroundColor = "green";
-        } else {
-          document.querySelector("#indicator3").style.backgroundColor = "red";
-        }
-      } else if (h.value == "#0000FF") {
-        if (s.includes("4")) {
-          document.querySelector("#indicator3").style.backgroundColor = "green";
-        } else {
-          document.querySelector("#indicator3").style.backgroundColor = "red";
-        }
-      } else if (h.value == "#FF0000") {
-        if (s.includes("1")) {
-          document.querySelector("#indicator3").style.backgroundColor = "green";
-        } else {
-          document.querySelector("#indicator3").style.backgroundColor = "red";
-        }
+    const s = element.innerText;
+    console.log(s, "Hello");
+    if(h.value == "#0000FF")
+    {
+      if (s.includes("4")) {
+        document.querySelector("#indicator3").style.backgroundColor = "green";
+      } else {
+        document.querySelector("#indicator3").style.backgroundColor = "red";
       }
-    });
+    }
+    else if(h.value == "#FF0000")
+    {
+      if (s.includes("1")) {
+        document.querySelector("#indicator3").style.backgroundColor = "green";
+      } else {
+        document.querySelector("#indicator3").style.backgroundColor = "red";
+      }
+    }
+    else if(h.value == "#00FF00")
+    {
+      if (s.includes("5")) {
+        document.querySelector("#indicator3").style.backgroundColor = "green";
+      } else {
+        document.querySelector("#indicator3").style.backgroundColor = "red";
+      }
+    }
   });
 }
+if(document.querySelector("#indicator3").style.backgroundColor == "green" && document.querySelector("#indicator2").style.backgroundColor == "green" && document.querySelector("#indicator1").style.backgroundColor == "green"){
+
+}
+
