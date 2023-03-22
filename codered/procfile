@@ -1,0 +1,2 @@
+web: gunicorn 'register.wsgi'
+web: gunicorn 'levels.wsgi'
