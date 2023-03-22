@@ -164,12 +164,12 @@ function countdown(elementName) {
             element.innerHTML = (twoDigits(hours) ? twoDigits(hours) + ':' + twoDigits(mins) : mins) + ':' + twoDigits(time.getUTCSeconds());
             setTimeout(updateTimer, time.getUTCMilliseconds() + 500);
             
-            sessionStorage.setItem('endTime', endTime);
+            localStorage.setItem('endTime', endTime);
         }
     }
     element = document.getElementById(elementName);
   
-    endTime = sessionStorage.getItem('endTime') || (+new Date) + 1000 * 60 * 60 * 2;
+    endTime = localStorage.getItem('endTime') || (+new Date) + 1000 * 60 * 60 * 2;
     updateTimer();
 }
 
@@ -232,17 +232,17 @@ function countdown(elementName) {
 
 function stopwatch(elementName) {
     
-    if (sessionStorage.getItem('stopwatch-url') !== window.location.href) {
-        sessionStorage.removeItem('stopwatch-minutes');
-        sessionStorage.removeItem('stopwatch-seconds');
-        sessionStorage.removeItem('stopwatch-tens');
-        sessionStorage.setItem('stopwatch-url', window.location.href);
+    if (localStorage.getItem('stopwatch-url') !== window.location.href) {
+        localStorage.removeItem('stopwatch-minutes');
+        localStorage.removeItem('stopwatch-seconds');
+        localStorage.removeItem('stopwatch-tens');
+        localStorage.setItem('stopwatch-url', window.location.href);
     }
   
   
-    var minutes = parseInt(sessionStorage.getItem('stopwatch-minutes')) || 0;
-    var seconds = parseInt(sessionStorage.getItem('stopwatch-seconds')) || 0;
-    var tens = parseInt(sessionStorage.getItem('stopwatch-tens')) || 0;
+    var minutes = parseInt(localStorage.getItem('stopwatch-minutes')) || 0;
+    var seconds = parseInt(localStorage.getItem('stopwatch-seconds')) || 0;
+    var tens = parseInt(localStorage.getItem('stopwatch-tens')) || 0;
     var appendTens = document.getElementById("tens")
     var appendSeconds = document.getElementById("seconds")
     var appendMinutes = document.getElementById("minutes")
@@ -286,9 +286,9 @@ function stopwatch(elementName) {
             appendMinutes.innerHTML = minutes;
         }
         
-        sessionStorage.setItem('stopwatch-minutes', minutes);
-        sessionStorage.setItem('stopwatch-seconds', seconds);
-        sessionStorage.setItem('stopwatch-tens', tens);
+        localStorage.setItem('stopwatch-minutes', minutes);
+        localStorage.setItem('stopwatch-seconds', seconds);
+        localStorage.setItem('stopwatch-tens', tens);
     }
 }
 

@@ -240,6 +240,10 @@ body {
   background-color: greenyellow;
   width: 80px;
   height: 40px;
+  font-size: x-large;
+  font-family: Times New Roman, serif;
+  border: 1px solid black;
+  border-radius: 15px;
 }
 
 .display-container {

@@ -1,16 +1,13 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Symbol Level</title>
     <link rel="stylesheet" href="{% static 'css/level7.css' %}">
-
 </head>
-
 <body>
     <div id="wrapper">
         <div class="viewport">
@@ -78,15 +75,18 @@
                     <div class="cube-image"><img src="{% static '/assets/bomb-panel-2.png' %}" alt="Bomb Panel TImer" height="200px" width = "200px"></div>                
                 </div>
                 <div class="side panel5">
-                    <!-- <form method="POST"> -->
+                    <form method="POST"> 
+                        {% csrf_token %}
                         <div class="button-panel container">
                             <div class="indicate3">
                                 <div id="indicator3"></div>
                             </div>
                             <button class="component" id="clickme" onmousedown="colour()" onmouseup="original()"></button>
                             <div class="vstrip" id="v1"></div>
+                            <input type="hidden" name="strip" id="strip" value="black">
+                            <input type="hidden" name="textstrip" id="textstrip" value="ABORT">
                         </div>
-                    <!-- </form> -->
+                    </form>
                 </div>
                 <div class="side">
                     <div class="cube-image active"><img src="{% static '/assets/bomb-panel-3.png' %}" alt="Bomb Panel TImer" height="200px" width = "200px"></div>                
