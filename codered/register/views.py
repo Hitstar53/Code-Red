@@ -42,3 +42,7 @@ def add_user(request):
             return render(request, 'authenticate/add_user.html')
             
     return render(request, 'authenticate/add_user.html')
+
+def teamsdb(request):
+    teams = Agent.objects.all()
+    return render(request, 'authenticate/teams_db.html', {'teams':teams})
