@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="{% static 'assets/OCL_Logo.svg' %}" type="svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Timer {% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id = "bg">
+        <div id="wrapper">
+            <div id="2h-countdown"></div>
+            <div id="stopwatch"><span id="minutes">00</span>:<span id="seconds">00</span>:<span id="tens">00</span></div>
+            <!-- Modal trigger button -->
+           
+                <input type="hidden" name="form_id" value="hint_form">
+                <button id="hint" data-bs-toggle="modal" data-bs-target="#staticBackdrop" disabled>
+                    Hint
+                    <i class="fa-solid fa-circle-question"></i>
+                </button>
+            
+        </div>
+        {% block content %}
+        {% endblock %}
+        <!-- Modal -->
+        {% block typing %}
+        {% endblock %}
+        <!-- <div class="text-wrapper">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus recusandae totam delectus soluta veniam. Eaque iste, repellendus aliquid natus accusantium modi, ab quaerat reprehenderit amet id illum quisquam possimus molestiae fuga tempore! Commodi voluptas animi ratione sed magnam. Quis sit reiciendis, facere nulla accusantium illo perspiciatis qui doloribus quam molestiae.   
+            </p>
+            <button id="next">
+                Next
+                <i class="fa-solid fa-arrow-right"></i> 
+            </button>
+        </div> -->
+    </div>
+    <!-- <div class="modal fade" id="hintModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="hintModalLabel">
+                        Here's a Hint!
+                        <i class="fa-regular fa-lightbulb"></i>
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="hintbody">
+                    
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Here's A Hint!!</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {% block hint %}
+        {% endblock %}
+        {{ hints }}
+      </div>
+      <!-- <div class="modal-footer">
+         <button type="button" class="btn btn-danger" id="bt" data-bs-dismiss="modal" name="submit2">Try Again</button> 
+      </div> -->
+    </div>
+  </div>
+</div>
+    <script src="{% static 'js/base.js' %}"></script>
+    {% block script %}
+    {% endblock %}
+    <script>
+        $(document).ready(function() {
+          setTimeout(function() {
+            $('#hintModal').modal('show');
+          }, 2000);
+        });
+      </script>
+    <script src="https://kit.fontawesome.com/ccf941b7da.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+</html>

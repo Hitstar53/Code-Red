@@ -1,0 +1,141 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+    opacity: 0.6;
+    margin-bottom: 10px;
+}
+
+form {
+    height: 460px;
+    width: 550px;
+    background-color: rgba(255, 255, 255, 0.13);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 30px 60px;
+}
+
+form * {
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+
+form h3 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 42px;
+    text-align: center;
+}
+
+form p {
+    position: fixed;
+    opacity: 0.6;
+    left: 37%;
+    margin-left: -140px;
+}
+
+.map {
+    position: absolute;
+    top: 50%;
+    left: -20%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    z-index: -1;
+    opacity: 0.75;
+}
+
+.in {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+label {
+    display: block;
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: 500;
+}
+.primary-label {
+    margin-top: 20px;
+}
+.ycord {
+    margin-top: 20px;
+}
+input {
+    display: block;
+    height: 50px;
+    width: 89%;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 18px;
+    padding: 0 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+::placeholder {
+    color: #e5e5e5;
+}
+
+button {
+    margin-top: 40px;
+    width: 100%;
+    background-color: grey;
+    color: #ffffff;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 18px;
+}
+
+/* utility classes */
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    padding: 0.6em;
+}
+
+.text-center {
+    text-align: center;
+}
+
+@media(max-width: 1440px)
+{
+    form {
+        height: 460px;
+        width: 550px;
+        background-color: rgba(255, 255, 255, 0.13);
+        position: absolute;
+        transform: translate(-30%, -50%);
+        top: 50%;
+        left: 50%;
+        border-radius: 50px;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+        padding: 30px 60px;
+    }
+    .word{
+        margin-left: -150px;
+    }
+}

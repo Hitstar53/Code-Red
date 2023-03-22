@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Code Red</title>
+    <link rel="icon" href="{% static 'assets/OCL_Logo.svg' %}" type="svg">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}">
+</head>
+<body>
+    <div id="bg"></div>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form method="POST">
+                    {% csrf_token %}
+                    <h2>
+                      <i class="fas fa-lock"></i> LOGIN
+                    </h2>
+                    <div class="inputbox">
+                        <input type="text" id="username" name="username" required>
+                        <label for="">Team Name</label>
+                    </div>
+                    <div class="inputbox">
+                        <input type="password" name="password" id="password" required>
+                        <label for="">Password</label>
+                    </div>
+                    <button type="submit">
+                        Login
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script src="https://kit.fontawesome.com/ccf941b7da.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static '/js/particles.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/js/login.js' %}"></script>
+</body>
+</html>

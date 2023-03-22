@@ -1,0 +1,229 @@
+.title-class {
+  position: absolute;
+  transform: translate(350%, 70%);
+  font-size: 3rem;
+  font-weight: 600;
+  color: white;
+}
+
+.text-wrapper {
+  position: absolute;
+  width: 35%;
+  height: 50%;
+  color: #009a22;
+  transform: translate(93%, 40%);
+  font-family: 'Anonymous Pro', monospace;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.cards-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 30rem;
+  height: 30vh;
+  transform: translate(0, 110%);
+  background-color: transparent;
+  z-index: 999;
+}
+
+.card {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 20px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  cursor: pointer;
+  background-color: transparent;
+  border-color: aliceblue;
+  color: whitesmoke;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(180deg);
+}
+
+.image{
+  rotate: 90deg;
+}
+
+.card-flipped {
+  transform: rotateY(180deg);
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ctext {
+  font-family: 'Amatic SC', cursive;
+  font-size: 2rem;
+  color: #009a22;
+  text-shadow: 0 0 10px #009a22;
+}
+
+.container-form {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  margin-left: 6.2rem;
+  margin-top: 32rem;
+  z-index: 4;
+}
+
+.title {
+  font-size: 3rem;
+  color: rgb(2, 2, 52);
+  margin-bottom: 2rem;
+  margin-top: 4rem;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  font-family: 'Russo One', sans-serif;
+  margin-left: 40.5rem;
+}
+
+
+
+.input-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: 16px;
+  color: white;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-out;
+}
+
+.input-field {
+  border: none;
+  border-bottom: 2px solid white;
+  padding: 10px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  width: 300px;
+  outline: none;
+  background-color: transparent;
+  color: white;
+}
+
+::placeholder {
+  opacity: 0.5;
+}
+
+.input-field:focus+.input-label {
+  transform: translateY(-50%);
+}
+
+.submit-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-out;
+}
+
+.submit-button:hover {
+  background-color: #0069d9;
+}
+
+.start-button {
+  position: absolute;
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-top: 1rem;
+  margin-left: 6.5rem;
+  /*bring it below input box*/
+  z-index: 6;
+
+
+}
+
+.container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: transparent;
+  z-index: 10;
+  padding-top: 300px;
+  padding-left: 220px;
+}
+
+@media(max-width: 1440px) {
+  .cards-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30rem;
+    height: 30vh;
+    transform: translate(-15%, 120%);
+    background-color: transparent;
+    z-index: 999;
+  }
+  .text-wrapper {
+    position: absolute;
+    width: 41%;
+    height: 50%;
+    color: #009a22;
+    transform: translate(80%, 35%);
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 24px;
+    font-weight: 700;
+  }
+  .title-class {
+    position: absolute;
+    transform: translate(298%, 70%);
+    font-size: 3rem;
+    font-weight: 600;
+    color: white;
+  }
+}

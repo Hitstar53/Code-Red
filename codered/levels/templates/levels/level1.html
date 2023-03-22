@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+  {% block title %}
+  Welcome
+  {% endblock %}
+  {% block content %}
+
+  <link rel="stylesheet" href="{% static 'css/level1.css' %}">
+  <!-- <script src="{% static 'js/level1.js' %}"></script> -->
+  <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  <form id="levelform" method="POST">
+    {% csrf_token %}
+    <h3>Level 1</h3>
+    <p class="word" style="text-align:center;opacity:0.5;margin-top: -20px;"></p>
+    <label class="primary-label" for="username">Agent ID</label>
+    <input type="text" placeholder="Enter ID" name="username" id="name">
+    <label for="password">Password</label>
+    <input type="password" placeholder="Enter password" name="pswrd" id="pswrd">
+    <button type="submit">Proceed to next level</button>
+  </form>
+  {% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+        {% endfor %}
+
+    {% endif %}
+  {% endblock %}
+ 
+  {% block script %}
+  <script src="{% static 'js/level1.js' %}"></script>
+  {% endblock %}
+<!-- <script src="{% static 'js/level1.js' %}"></script> -->
+  
+

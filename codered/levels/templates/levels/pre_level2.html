@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  Read Carefully
+{% endblock %}
+{% block typing %}
+<link rel="stylesheet" href="{% static 'css/prelevel2.css' %}">
+<div class="text-wrapper">
+    <p>Oh!! Congratulations!! You have cleared ONE level. I was just being sarcastic. Don’t get cocky. The
+        bomb is still ticking. Well the next level is just a cruel trick to mess with your funny little brains. So, go
+        ahead. “Click”. 
+    </p>
+    <a href="{% url 'level2' %}">
+        <button id="next">
+            Next
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </a>
+</div>
+{% endblock %}

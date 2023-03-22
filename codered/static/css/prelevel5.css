@@ -1,0 +1,39 @@
+body {
+  background: linear-gradient(145deg, #1a1a1a 50%, #404040 115%);
+}
+.text-wrapper {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  color: #009a22;
+  transform: translate(50%, 50%);
+  font-family: 'Anonymous Pro', monospace;
+  font-size: 24px;
+  font-weight: 700;
+}
+#hint {
+  display: none;
+}
+#next {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%);
+  height: 45px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+@media(max-width: 1440px){
+  .text-wrapper {
+    width: 60%;
+    height: 58%;
+    position: absolute;
+    color: #009a22;
+    transform: translate(35%, 46%);
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 22px;
+    font-weight: 700;
+  }
+}

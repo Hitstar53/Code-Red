@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol Level</title>
+    <link rel="stylesheet" href="{% static 'css/level7.css' %}">
+</head>
+<body>
+    <div id="wrapper">
+        <div class="viewport">
+            <div class="cube">
+                <div class="side panel4">
+                    <div class="symbol-panel container">
+                        <!-- <form method="POST"> -->
+                            <div class="indicate">
+                                <div id="indicator"></div>
+                            </div>
+                            <div class="keypad">
+                                <div class="upper-row">
+                                    <button class="symbol" id="opt1">Option 1</button>
+                                    <button class="symbol" id="opt2">Option 2</button>
+                                </div>
+                                <br>
+                                <div class="lower-row">
+                                    <button class="symbol" id="opt3">Option 3</button>
+                                    <button class="symbol" id="opt4">Option 4</button>
+                                </div>
+                            </div>
+                        <!-- </form> -->
+                    </div>
+                </div>
+                <div class="side panel6">
+                    <div class="slider-panel container">
+                        <!-- <form action="" method="POST"> -->
+                            <div class="indicate2">
+                                <div id="indicator2"></div>
+                            </div>
+                            <div class="display-container">
+                                <div id="dot" class="light1"></div>
+                                <div id="dash" class="light2"></div>
+                            </div>
+                            <br>
+                            <div class="slider-container">
+                                <input type="range" class="slider" min="3.5" max="4" step="0.001" value="6.9">
+                            </div>
+                            <br>
+                            <div class="span-container">
+                                <span class="value" style="color: white; background-color: black; padding: 5px;">3.690</span>
+                            </div>
+                            <div class="button-container">
+                                <button class="slider-level-btn" id="#button3" onclick="checkcolor()">TX</button>
+                            </div>
+                        <!-- </form> -->
+                    </div>
+                </div>
+                <div class="side panel1">
+                    <!-- <div class="cube-image">
+                        <img src="D:\MLTG\OCL\bomb\bomb-panel-1.png" alt="Bomb Panel TImer" height="200px" width = "200px"></div> -->
+                    <section>
+                        <div class="clock">
+                            <div class="container timer" id="2h-countdown">
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="side">
+                    <div class="cube-image"><img src="{% static '/assets/bomb-panel-2.png' %}" alt="Bomb Panel TImer" height="200px" width = "200px"></div>                
+                </div>
+                <div class="side panel5">
+                        <div class="button-panel container">
+                            <div class="indicate3">
+                                <div id="indicator3"></div>
+                            </div>
+                            <button class="component" id="clickme" onmousedown="colour()" onmouseup="original()"></button>
+                            <div class="vstrip" id="v1"></div>
+                            <input type="hidden" name="strip" id="strip" value="black">
+                            <input type="hidden" name="textstrip" id="textstrip" value="STOP">
+                        </div>
+                </div>
+                <div class="side">
+                    <div class="cube-image active"><img src="{% static '/assets/bomb-panel-3.png' %}" alt="Bomb Panel TImer" height="200px" width = "200px"></div>                
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/level7.js' %}"></script>
+</body>
+
+</html>
