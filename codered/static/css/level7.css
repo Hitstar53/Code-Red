@@ -169,38 +169,39 @@ body {
 
 .panel1
 {
-  background-image : url("https://i.ibb.co/jyfmp0Y/bomb-panel-1.png");
+  background-image : url('../assets/bomb-panel-1.png');
   background-size: 100% 100%;
 }
 
 .panel2
 {
-  background-image : url("https://i.ibb.co/JnHnPX6/bomb-panel-2.png");
+  background-image : url("../assets/bomb-panel-2.png");
   background-size: 100% 100%;
 }
 
 .panel3
 {
-  background-image : url("https://i.ibb.co/TRzp2bS/bomb-panel-3.png");
+  background-image : url("../assets/bomb-panel-3.png");
   background-size: 100% 100%;
 }
 
 .panel4
 {
-  background-image : url("https://i.ibb.co/CvvZN4v/bomb-panel-4.png");
+  background-image : url("../assets/bomb-panel-4.png");
   background-size: 100% 100%;
 }
 
 .panel5
 {
-  background-image : url("https://i.ibb.co/P4fWsgp/bomb-panel-5.png");
+  background-image : url("../assets/bomb-panel-5.png");
   background-size: 100% 100%;
 }
 
 .panel6
 {
-  background-image : url("https://i.ibb.co/Mnt4SGz/bomb-panel-6.png");
+  background-image : url("../assets/bomb-panel-6.png");
   background-size: 100% 100%;
+  color:#FF0000
 } 
 
 .indicate {
@@ -430,4 +431,13 @@ object:hover {
   }
 }
 
+#final{
+  position: absolute;
+  width: 47px;
+  height: 30px;
+  font-size: 8px;
+  margin-left: -10px;
+  transform: translate(320%, 46%);
+  background-color: greenyellow;
+}
 
