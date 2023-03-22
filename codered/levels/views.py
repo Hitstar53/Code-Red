@@ -231,10 +231,7 @@ def level7(request):
             print(color)
             text = request.POST.get('textstrip')
             print(text)
-            if "5" in now:
-                print("True")
-            else:
-                print("False")
+            
             return redirect('level6')
             """
             pos=Position.objects.get(id=1)

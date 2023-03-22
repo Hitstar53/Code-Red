@@ -7,9 +7,9 @@ Invisiblity.
 <link rel="stylesheet" href="{% static 'css/level5.css' %}">
 <h1 class="title">Hidden</h1>
     <div class = "link-wrapper">
-        <a href="password1.jpeg" id="code1" download>DOWNLOAD INTEL</a>
+        <a href="{% static 'assets/Bomb_Defusal_Manual.pdf' %}" id="code1" download>DOWNLOAD INTEL</a>
         <br>
-        <a href="manual.pdf" id="code2" download>CORRECT DOWNLOAD LINK</a>
+        <a href="{% static 'assets/Bomb_Defusal_Manual_Correct.pdf' %}" id="code2" download>CORRECT DOWNLOAD LINK</a>
     </div>
     <form method="post">
         {% csrf_token %}

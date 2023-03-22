@@ -61,12 +61,7 @@
                         <img src="D:\MLTG\OCL\bomb\bomb-panel-1.png" alt="Bomb Panel TImer" height="200px" width = "200px"></div> -->
                     <section>
                         <div class="clock">
-                            <div class="container">
-                                <h2 id="hour">30</h2>
-                                <h2 class="dot">:</h2>
-                                <h2 id="min">00</h2>
-                                <h2 class="dot">:</h2>
-                                <h2 id="secs">00</h2>
+                            <div class="container timer" id="2h-countdown">
                             </div>
                         </div>
                     </section>
@@ -75,8 +70,6 @@
                     <div class="cube-image"><img src="{% static '/assets/bomb-panel-2.png' %}" alt="Bomb Panel TImer" height="200px" width = "200px"></div>                
                 </div>
                 <div class="side panel5">
-                    <form method="POST"> 
-                        {% csrf_token %}
                         <div class="button-panel container">
                             <div class="indicate3">
                                 <div id="indicator3"></div>
@@ -84,9 +77,8 @@
                             <button class="component" id="clickme" onmousedown="colour()" onmouseup="original()"></button>
                             <div class="vstrip" id="v1"></div>
                             <input type="hidden" name="strip" id="strip" value="black">
-                            <input type="hidden" name="textstrip" id="textstrip" value="ABORT">
+                            <input type="hidden" name="textstrip" id="textstrip" value="STOP">
                         </div>
-                    </form>
                 </div>
                 <div class="side">
                     <div class="cube-image active"><img src="{% static '/assets/bomb-panel-3.png' %}" alt="Bomb Panel TImer" height="200px" width = "200px"></div>                
