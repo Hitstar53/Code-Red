@@ -22,6 +22,7 @@ class Agent(models.Model):
     level5_pos=models.IntegerField(blank=True, default=0)  
     level6_pos=models.IntegerField(blank=True, default=0)  
     level7_pos=models.IntegerField(blank=True, default=0)  
-    level8_pos=models.IntegerField(blank=True, default=0)    
+    level8_pos=models.IntegerField(blank=True, default=0)
+    level_count = models.IntegerField(blank=True, default=1)  
     def __str__(self):
         return self.Agid

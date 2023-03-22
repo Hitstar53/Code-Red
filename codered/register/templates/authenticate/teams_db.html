@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/teams_db.css' %}">
+    <title>Team Database</title>
+</head>
+<body>
+    <div class="container">
+        <table id="team_table">
+            <thead>
+                <tr>
+                    <th>Team Name</th>
+                    <th>Level</th>
+                    
+                   
+                </tr>
+            </thead>
+            <tbody>
+                {% for team in teams %}
+                <tr>
+                    <td>{{team.Agid}}</td>
+                    <td>{{team.level_count}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+<script src="{% static 'js/teams_db.js' %}"></script>
+</html>
