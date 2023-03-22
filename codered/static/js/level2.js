@@ -6,7 +6,7 @@ const screenHeight = window.innerHeight;
 var gspot = Math.random() * 500;
 gspot = Math.round(gspot);
 //testing gspot
-// console.log(gspot);
+console.log("Move the button to  x = ", gspot);
 button.addEventListener("mousemove", e => {
     const left = parseInt(button.style.left, 10);
     const top = parseInt(button.style.top, 10);

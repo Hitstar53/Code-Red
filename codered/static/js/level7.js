@@ -346,12 +346,12 @@ const opt2 = document.querySelector("#opt2");
 const opt3 = document.querySelector("#opt3");
 const opt4 = document.querySelector("#opt4");
 const arr = [
-  ['A', 'B', 'C', 'D'],
-  ['B', 'D', 'F', 'E'],
-  ['W', 'G', 'R', 'S'],
-  ['F', 'G', 'R', 'Y'],
-  ['E', 'G', 'S', 'D'],
-  ['U', 'Z', 'L', 'M']
+  ['𐌒', 'ƛ', 'ϗ', 'Ͽ'],
+  ['Ӭ', '𐌒', 'Ͽ', '¿'],
+  ['Ѽ', 'Җ', 'Ԇ', 'ƛ'],
+  ['Ѭ', 'Җ', '¿', 'ټ'],
+  ['ټ', 'Ѣ', '¶', 'Ѯ'],
+  ['Ӭ', 'æ', 'Ψ', 'Ω']
 ];
 const buttons = document.querySelectorAll(".keypad");
 let random = Math.floor(Math.random() * arr.length);
@@ -599,5 +599,8 @@ window.onload = function () {
     b.innerText = a;
     localStorage["text"] = a;
   }
-
+  var h = document.querySelector("#strip");
+  h.value = localStorage["color"];
+  var t = document.querySelector("#textstrip");
+  t.value = a;
 }

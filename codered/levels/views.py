@@ -3,7 +3,8 @@ from django.shortcuts import render
 from django.contrib import messages
 from django.contrib.auth.models import Group
 from django.shortcuts import redirect
-from .models import Agent
+from datetime import datetime
+from .models import Agent,Position
 # Create your views here.
 def home(request):
     return render(request, 'levels/home.html')
@@ -28,6 +29,8 @@ def level1(request):
                 a.save()
             group=Group.objects.get(name='Level 2')
             group.user_set.add(request.user)
+
+
             return redirect('prelevel2')
         else:
             print('Incorrect Password')
@@ -159,14 +162,15 @@ def level6(request):
     user=request.user.groups.filter(name='Level 6').exists()
     if user:
         if request.method == 'POST':
+            ans1 = "Wankhede"
             loc=request.POST.get('team_name')
-            if loc=="SPIT":
+            if ans1.lower() in loc.lower():
                 group=Group.objects.get(name='Level 7')
                 group.user_set.add(request.user)
                 return redirect('prelevel7')
             else:
                 print("Nope")
-            
+                return redirect('level6')
         else:
             return render(request, 'levels/level6.html', {'hints':hint})
     else:
@@ -176,10 +180,19 @@ def level7(request):
     user=request.user.groups.filter(name='Level 7').exists()
     if user:
         if request.method == 'POST':
-            group=Group.objects.get(name='Level 8')
-            group.user_set.add(request.user)
-            return redirect('level8')
-            
+            now = datetime.now()
+            now = str(now)
+            now = now[11:19]
+            print(now)
+            color = request.POST.get('strip')
+            print(color)
+            text = request.POST.get('textstrip')
+            print(text)
+            if "5" in now:
+                print("True")
+            else:
+                print("False")
+            return redirect('level6')
         else:
             return render(request, 'levels/level7.html')
     else:
