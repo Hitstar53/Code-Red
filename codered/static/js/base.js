@@ -267,11 +267,6 @@ function stopwatch(elementName) {
         }
         if (seconds > 9) {
             appendSeconds.innerHTML = seconds;
-            btn.disabled = false;
-            btn.style.border = "none";
-            btn.style.color = "black";
-            btn.style.backgroundColor = "yellow";
-            btn.style.cursor = "pointer";
         }
         if (seconds > 59) {
             minutes++;
@@ -284,6 +279,11 @@ function stopwatch(elementName) {
         }
         if (minutes > 9) {
             appendMinutes.innerHTML = minutes;
+            btn.disabled = false;
+            btn.style.border = "none";
+            btn.style.color = "black";
+            btn.style.backgroundColor = "yellow";
+            btn.style.cursor = "pointer";
         }
         
         localStorage.setItem('stopwatch-minutes', minutes);

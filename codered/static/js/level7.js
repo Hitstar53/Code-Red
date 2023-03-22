@@ -1,10 +1,10 @@
 var events = new Events();
 events.add = function (obj) {
   obj.events = {};
-}
+};
 events.implement = function (fn) {
   fn.prototype = Object.create(Events.prototype);
-}
+};
 
 function Events() {
   this.events = {};
@@ -13,29 +13,29 @@ Events.prototype.on = function (name, fn) {
   var events = this.events[name];
   if (events == undefined) {
     this.events[name] = [fn];
-    this.emit('event:on', fn);
+    this.emit("event:on", fn);
   } else {
     if (events.indexOf(fn) == -1) {
       events.push(fn);
-      this.emit('event:on', fn);
+      this.emit("event:on", fn);
     }
   }
   return this;
-}
+};
 Events.prototype.once = function (name, fn) {
   var events = this.events[name];
   fn.once = true;
   if (!events) {
     this.events[name] = [fn];
-    this.emit('event:once', fn);
+    this.emit("event:once", fn);
   } else {
     if (events.indexOf(fn) == -1) {
       events.push(fn);
-      this.emit('event:once', fn);
+      this.emit("event:once", fn);
     }
   }
   return this;
-}
+};
 Events.prototype.emit = function (name, args) {
   var events = this.events[name];
   if (events) {
@@ -50,7 +50,7 @@ Events.prototype.emit = function (name, args) {
     }
   }
   return this;
-}
+};
 Events.prototype.unbind = function (name, fn) {
   if (name) {
     var events = this.events[name];
@@ -69,23 +69,23 @@ Events.prototype.unbind = function (name, fn) {
     this.events = {};
   }
   return this;
-}
+};
 
 var userPrefix;
 
 var prefix = (function () {
-  var styles = window.getComputedStyle(document.documentElement, ''),
+  var styles = window.getComputedStyle(document.documentElement, ""),
     pre = (Array.prototype.slice
       .call(styles)
-      .join('')
-      .match(/-(moz|webkit|ms)-/) || (styles.OLink === '' && ['', 'o'])
-    )[1],
-    dom = ('WebKit|Moz|MS|O').match(new RegExp('(' + pre + ')', 'i'))[1];
+      .join("")
+      .match(/-(moz|webkit|ms)-/) ||
+      (styles.OLink === "" && ["", "o"]))[1],
+    dom = "WebKit|Moz|MS|O".match(new RegExp("(" + pre + ")", "i"))[1];
   userPrefix = {
     dom: dom,
     lowercase: pre,
-    css: '-' + pre + '-',
-    js: pre[0].toUpperCase() + pre.substr(1)
+    css: "-" + pre + "-",
+    js: pre[0].toUpperCase() + pre.substr(1),
   };
 })();
 
@@ -93,7 +93,7 @@ function bindEvent(element, type, handler) {
   if (element.addEventListener) {
     element.addEventListener(type, handler, false);
   } else {
-    element.attachEvent('on' + type, handler);
+    element.attachEvent("on" + type, handler);
   }
 }
 
@@ -129,68 +129,66 @@ function Viewport(data) {
   this.currentSide = 0;
   this.calculatedSide = 0;
 
-
-  bindEvent(document, 'mousedown', function () {
+  bindEvent(document, "mousedown", function () {
     self.down = true;
   });
 
-  bindEvent(document, 'mouseup', function () {
+  bindEvent(document, "mouseup", function () {
     self.down = false;
   });
 
-  bindEvent(document, 'keyup', function () {
+  bindEvent(document, "keyup", function () {
     self.down = false;
   });
 
-  bindEvent(document, 'mousemove', function (e) {
+  bindEvent(document, "mousemove", function (e) {
     self.mouseX = e.pageX;
     self.mouseY = e.pageY;
   });
 
-  bindEvent(document, 'touchstart', function (e) {
-
+  bindEvent(document, "touchstart", function (e) {
     self.down = true;
-    e.touches ? e = e.touches[0] : null;
+    e.touches ? (e = e.touches[0]) : null;
     self.mouseX = e.pageX / self.touchSensivity;
     self.mouseY = e.pageY / self.touchSensivity;
     self.lastX = self.mouseX;
     self.lastY = self.mouseY;
   });
 
-  bindEvent(document, 'touchmove', function (e) {
+  bindEvent(document, "touchmove", function (e) {
     if (e.preventDefault) {
       e.preventDefault();
     }
 
     if (e.touches.length == 1) {
-
-      e.touches ? e = e.touches[0] : null;
+      e.touches ? (e = e.touches[0]) : null;
 
       self.mouseX = e.pageX / self.touchSensivity;
       self.mouseY = e.pageY / self.touchSensivity;
-
     }
   });
 
-  bindEvent(document, 'touchend', function (e) {
+  bindEvent(document, "touchend", function (e) {
     self.down = false;
   });
 
   setInterval(this.animate.bind(this), this.fps);
-
 }
 events.implement(Viewport);
 Viewport.prototype.animate = function () {
-
-  this.distanceX = (this.mouseX - this.lastX);
-  this.distanceY = (this.mouseY - this.lastY);
+  this.distanceX = this.mouseX - this.lastX;
+  this.distanceY = this.mouseY - this.lastY;
 
   this.lastX = this.mouseX;
   this.lastY = this.mouseY;
 
   if (this.down) {
-    this.torqueX = this.torqueX * this.sensivityFade + (this.distanceX * this.speed - this.torqueX) * this.sensivity;
-    this.torqueY = this.torqueY * this.sensivityFade + (this.distanceY * this.speed - this.torqueY) * this.sensivity;
+    this.torqueX =
+      this.torqueX * this.sensivityFade +
+      (this.distanceX * this.speed - this.torqueX) * this.sensivity;
+    this.torqueY =
+      this.torqueY * this.sensivityFade +
+      (this.distanceY * this.speed - this.torqueY) * this.sensivity;
   }
 
   if (Math.abs(this.torqueX) > 1.0 || Math.abs(this.torqueY) > 1.0) {
@@ -212,16 +210,14 @@ Viewport.prototype.animate = function () {
 
       if (!this.upsideDown) {
         this.upsideDown = true;
-        this.emit('upsideDown', { upsideDown: this.upsideDown });
+        this.emit("upsideDown", { upsideDown: this.upsideDown });
       }
-
     } else {
-
       this.positionX += this.torqueX;
 
       if (this.upsideDown) {
         this.upsideDown = false;
-        this.emit('upsideDown', { upsideDown: this.upsideDown });
+        this.emit("upsideDown", { upsideDown: this.upsideDown });
       }
     }
 
@@ -231,7 +227,10 @@ Viewport.prototype.animate = function () {
       this.positionX += 360;
     }
 
-    if (!(this.positionY >= 46 && this.positionY <= 130) && !(this.positionY >= 220 && this.positionY <= 308)) {
+    if (
+      !(this.positionY >= 46 && this.positionY <= 130) &&
+      !(this.positionY >= 220 && this.positionY <= 308)
+    ) {
       if (this.upsideDown) {
         if (this.positionX >= 42 && this.positionX <= 130) {
           this.calculatedSide = 3;
@@ -265,93 +264,130 @@ Viewport.prototype.animate = function () {
 
     if (this.calculatedSide !== this.currentSide) {
       this.currentSide = this.calculatedSide;
-      this.emit('sideChange');
+      this.emit("sideChange");
     }
-
   }
 
-  this.element.style[userPrefix.js + 'Transform'] = 'rotateX(' + this.positionY + 'deg) rotateY(' + this.positionX + 'deg)';
+  this.element.style[userPrefix.js + "Transform"] =
+    "rotateX(" + this.positionY + "deg) rotateY(" + this.positionX + "deg)";
 
-  if (this.positionY != this.previousPositionY || this.positionX != this.previousPositionX) {
+  if (
+    this.positionY != this.previousPositionY ||
+    this.positionX != this.previousPositionX
+  ) {
     this.previousPositionY = this.positionY;
     this.previousPositionX = this.positionX;
 
-    this.emit('rotate');
-
+    this.emit("rotate");
   }
-
-}
+};
 var viewport = new Viewport({
-  element: document.getElementsByClassName('cube')[0],
+  element: document.getElementsByClassName("cube")[0],
   fps: 20,
-  sensivity: .1,
-  sensivityFade: .93,
+  sensivity: 0.1,
+  sensivityFade: 0.93,
   speed: 2,
-  touchSensivity: 1.5
+  touchSensivity: 1.5,
 });
 
 function Cube(data) {
   var self = this;
 
   this.element = data.element;
-  this.sides = this.element.getElementsByClassName('side');
+  this.sides = this.element.getElementsByClassName("side");
 
   this.viewport = data.viewport;
-  this.viewport.on('rotate', function () {
+  this.viewport.on("rotate", function () {
     self.rotateSides();
   });
-  this.viewport.on('upsideDown', function (obj) {
+  this.viewport.on("upsideDown", function (obj) {
     self.upsideDown(obj);
   });
-  this.viewport.on('sideChange', function () {
+  this.viewport.on("sideChange", function () {
     self.sideChange();
   });
 }
 Cube.prototype.rotateSides = function () {
   var viewport = this.viewport;
   if (viewport.positionY > 90 && viewport.positionY < 270) {
-    this.sides[0].getElementsByClassName('cube-image')[0].style[userPrefix.js + 'Transform'] = 'rotate(' + (viewport.positionX + viewport.torqueX) + 'deg)';
-    this.sides[5].getElementsByClassName('cube-image')[0].style[userPrefix.js + 'Transform'] = 'rotate(' + -(viewport.positionX + 180 + viewport.torqueX) + 'deg)';
+    this.sides[0].getElementsByClassName("cube-image")[0].style[
+      userPrefix.js + "Transform"
+    ] = "rotate(" + (viewport.positionX + viewport.torqueX) + "deg)";
+    this.sides[5].getElementsByClassName("cube-image")[0].style[
+      userPrefix.js + "Transform"
+    ] = "rotate(" + -(viewport.positionX + 180 + viewport.torqueX) + "deg)";
   } else {
-    this.sides[0].getElementsByClassName('cube-image')[0].style[userPrefix.js + 'Transform'] = 'rotate(' + (viewport.positionX - viewport.torqueX) + 'deg)';
-    this.sides[5].getElementsByClassName('cube-image')[0].style[userPrefix.js + 'Transform'] = 'rotate(' + -(viewport.positionX + 180 - viewport.torqueX) + 'deg)';
+    this.sides[0].getElementsByClassName("cube-image")[0].style[
+      userPrefix.js + "Transform"
+    ] = "rotate(" + (viewport.positionX - viewport.torqueX) + "deg)";
+    this.sides[5].getElementsByClassName("cube-image")[0].style[
+      userPrefix.js + "Transform"
+    ] = "rotate(" + -(viewport.positionX + 180 - viewport.torqueX) + "deg)";
   }
-}
+};
 Cube.prototype.upsideDown = function (obj) {
-
-  var deg = (obj.upsideDown == true) ? '180deg' : '0deg';
+  var deg = obj.upsideDown == true ? "180deg" : "0deg";
   var i = 5;
 
   while (i > 0 && --i) {
-    this.sides[i].getElementsByClassName('cube-image')[0].style[userPrefix.js + 'Transform'] = 'rotate(' + deg + ')';
+    this.sides[i].getElementsByClassName("cube-image")[0].style[
+      userPrefix.js + "Transform"
+    ] = "rotate(" + deg + ")";
   }
-
-}
+};
 Cube.prototype.sideChange = function () {
-
   for (var i = 0; i < this.sides.length; ++i) {
-    this.sides[i].getElementsByClassName('cube-image')[0].className = 'cube-image';
+    this.sides[i].getElementsByClassName("cube-image")[0].className =
+      "cube-image";
   }
 
-  this.sides[this.viewport.currentSide - 1].getElementsByClassName('cube-image')[0].className = 'cube-image active';
+  this.sides[this.viewport.currentSide - 1].getElementsByClassName(
+    "cube-image"
+  )[0].className = "cube-image active";
+};
+function countdown(elementName) {
+  var element, endTime, hours, mins, msLeft, time;
+  function twoDigits(n) {
+    return n <= 9 ? "0" + n : n;
+  }
+  function updateTimer() {
+    msLeft = endTime - +new Date();
+    if (msLeft < 1000) {
+      element.innerHTML = "Time is up!";
+    } else {
+      time = new Date(msLeft);
+      hours = time.getUTCHours();
+      mins = time.getUTCMinutes();
+      element.innerHTML =
+        (twoDigits(hours) ? twoDigits(hours) + ":" + twoDigits(mins) : mins) +
+        ":" +
+        twoDigits(time.getUTCSeconds());
+      setTimeout(updateTimer, time.getUTCMilliseconds() + 500);
 
+      localStorage.setItem("endTime", endTime);
+    }
+  }
+  element = document.getElementById(elementName);
+
+  endTime = localStorage.getItem("endTime") || +new Date() + 1000 * 60 * 60 * 2;
+  updateTimer();
 }
-
+countdown("2h-countdown");
 new Cube({
   viewport: viewport,
-  element: document.getElementsByClassName('cube')[0]
+  element: document.getElementsByClassName("cube")[0],
 });
 const opt1 = document.querySelector("#opt1");
 const opt2 = document.querySelector("#opt2");
 const opt3 = document.querySelector("#opt3");
 const opt4 = document.querySelector("#opt4");
 const arr = [
-  ['𐌒', 'ƛ', 'ϗ', 'Ͽ'],
-  ['Ӭ', '𐌒', 'Ͽ', '¿'],
-  ['Ѽ', 'Җ', 'Ԇ', 'ƛ'],
-  ['Ѭ', 'Җ', '¿', 'ټ'],
-  ['ټ', 'Ѣ', '¶', 'Ѯ'],
-  ['Ӭ', 'æ', 'Ψ', 'Ω']
+  ["𐌒", "ƛ", "ϗ", "Ͽ"],
+  ["Ӭ", "𐌒", "Ͽ", "¿"],
+  ["Ѽ", "Җ", "Ԇ", "ƛ"],
+  ["Ѭ", "Җ", "¿", "ټ"],
+  ["ټ", "Ѣ", "¶", "Ѯ"],
+  ["Ӭ", "æ", "Ψ", "Ω"],
 ];
 const buttons = document.querySelectorAll(".keypad");
 let random = Math.floor(Math.random() * arr.length);
@@ -377,46 +413,42 @@ window.onload = function () {
   });
 };
 
-opt1.addEventListener('click', () => {
+opt1.addEventListener("click", () => {
   count++;
   if (index === 0) {
     index++;
-  }
-  else {
+  } else {
     index = 0;
   }
   check();
-})
-opt2.addEventListener('click', () => {
+});
+opt2.addEventListener("click", () => {
   count++;
   if (index === 1) {
     index++;
-  }
-  else {
+  } else {
     index = 0;
   }
   check();
-})
-opt3.addEventListener('click', () => {
+});
+opt3.addEventListener("click", () => {
   count++;
   if (index === 2) {
     index++;
-  }
-  else {
+  } else {
     index = 0;
   }
   check();
-})
-opt4.addEventListener('click', () => {
+});
+opt4.addEventListener("click", () => {
   count++;
   if (index === 3) {
     index++;
-  }
-  else {
+  } else {
     index = 0;
   }
   check();
-})
+});
 function getMultipleRandom(arr) {
   const shuffled = [...arr].sort(() => 0.5 - Math.random());
   return shuffled.slice(0, 4);
@@ -426,95 +458,108 @@ function check() {
     document.querySelector("#indicator").style.backgroundColor = "green";
     index = 0;
     count = 0;
-  }
-  else if (index < 4 && count === 4) {
+  } else if (index < 4 && count === 4) {
     document.querySelector("#indicator").style.backgroundColor = "red";
     index = 0;
     count = 0;
   }
 }
-const slider = document.querySelector('.slider');
-const value = document.querySelector('.value');
+const slider = document.querySelector(".slider");
+const value = document.querySelector(".value");
 
-slider.addEventListener('input', function () {
+slider.addEventListener("input", function () {
   value.textContent = this.value;
 });
 
 const dictionary = [
-  "SHELL", "HALLS", "SLICK", "TRICK", "BOXES", "LEAKS", "STROBE", "BISTRO", "FLICK", "BOMBS", "BREAK", "BRICK", "STEAK", "STING", "VECTOR", "BEATS",
-]
+  "SHELL",
+  "HALLS",
+  "SLICK",
+  "TRICK",
+  "BOXES",
+  "LEAKS",
+  "STROBE",
+  "BISTRO",
+  "FLICK",
+  "BOMBS",
+  "BREAK",
+  "BRICK",
+  "STEAK",
+  "STING",
+  "VECTOR",
+  "BEATS",
+];
 const frequency = {
-  "SHELL": 3.514,
-  "HALLS": 3.543,
-  "SLICK": 3.572,
-  "TRICK": 3.6,
-  "BOXES": 3.629,
-  "LEAKS": 3.657,
-  "STROBE": 3.686,
-  "BISTRO": 3.714,
-  "FLICK": 3.743,
-  "BOMBS": 3.771,
-  "BREAK": 3.8,
-  "BRICK": 3.829,
-  "STEAK": 3.857,
-  "STING": 3.886,
-  "VECTOR": 3.914,
-  "BEATS": 3.943,
-
+  SHELL: 3.514,
+  HALLS: 3.543,
+  SLICK: 3.572,
+  TRICK: 3.6,
+  BOXES: 3.629,
+  LEAKS: 3.657,
+  STROBE: 3.686,
+  BISTRO: 3.714,
+  FLICK: 3.743,
+  BOMBS: 3.771,
+  BREAK: 3.8,
+  BRICK: 3.829,
+  STEAK: 3.857,
+  STING: 3.886,
+  VECTOR: 3.914,
+  BEATS: 3.943,
 };
 function getRandomWord() {
   return dictionary[Math.floor(Math.random() * dictionary.length)];
 }
 const word = getRandomWord();
 console.log(word);
-const dotLight = document.getElementById('dot');
-const dashLight = document.getElementById('dash');
+const dotLight = document.getElementById("dot");
+const dashLight = document.getElementById("dash");
 
 const morseCode = {
-  'a': '.-',
-  'b': '-...',
-  'c': '-.-.',
-  'd': '-..',
-  'e': '.',
-  'f': '..-.',
-  'g': '--.',
-  'h': '....',
-  'i': '..',
-  'j': '.---',
-  'k': '-.-',
-  'l': '.-..',
-  'm': '--',
-  'n': '-.',
-  'o': '---',
-  'p': '.--.',
-  'q': '--.-',
-  'r': '.-.',
-  's': '...',
-  't': '-',
-  'u': '..-',
-  'v': '...-',
-  'w': '.--',
-  'x': '-..-',
-  'y': '-.--',
-  'z': '--..',
-  '0': '-----',
-  '1': '.----',
-  '2': '..---',
-  '3': '...--',
-  '4': '....-',
-  '5': '.....',
-  '6': '-....',
-  '7': '--...',
-  '8': '---..',
-  '9': '----.',
-  ' ': ' ',
+  a: ".-",
+  b: "-...",
+  c: "-.-.",
+  d: "-..",
+  e: ".",
+  f: "..-.",
+  g: "--.",
+  h: "....",
+  i: "..",
+  j: ".---",
+  k: "-.-",
+  l: ".-..",
+  m: "--",
+  n: "-.",
+  o: "---",
+  p: ".--.",
+  q: "--.-",
+  r: ".-.",
+  s: "...",
+  t: "-",
+  u: "..-",
+  v: "...-",
+  w: ".--",
+  x: "-..-",
+  y: "-.--",
+  z: "--..",
+  0: "-----",
+  1: ".----",
+  2: "..---",
+  3: "...--",
+  4: "....-",
+  5: ".....",
+  6: "-....",
+  7: "--...",
+  8: "---..",
+  9: "----.",
+  " ": " ",
 };
 
 function encodeAndAnimate() {
   let text = word.toLowerCase();
-  let morse = '';
+  let morse = "";
   for (let slider_i = 0; slider_i < text.length; slider_i++) {
-    morse += morseCode[text[slider_i]] + ' ';
+    morse += morseCode[text[slider_i]] + " ";
   }
   animateMorse(morse.trim());
 }
@@ -530,25 +575,25 @@ function animateMorse(morse) {
         }, 5000);
         return;
       }
-      if (morse[slider_i] === '.') {
-        dotLight.style.backgroundColor = 'red';
+      if (morse[slider_i] === ".") {
+        dotLight.style.backgroundColor = "red";
         setTimeout(() => {
-          dotLight.style.backgroundColor = 'white';
+          dotLight.style.backgroundColor = "white";
           slider_i++;
           setTimeout(animate, 250);
         }, 500);
-      } else if (morse[slider_i] === '-') {
-        dashLight.style.backgroundColor = 'red';
+      } else if (morse[slider_i] === "-") {
+        dashLight.style.backgroundColor = "red";
         setTimeout(() => {
-          dashLight.style.backgroundColor = 'white';
+          dashLight.style.backgroundColor = "white";
           slider_i++;
           setTimeout(animate, 250);
         }, 500);
       } else {
         slider_i++;
         setTimeout(() => {
-          dotLight.style.backgroundColor = 'white';
-          dashLight.style.backgroundColor = 'white';
+          dotLight.style.backgroundColor = "white";
+          dashLight.style.backgroundColor = "white";
           setTimeout(animate, 1500);
         }, 250);
       }
@@ -559,23 +604,21 @@ function animateMorse(morse) {
 }
 encodeAndAnimate();
 function checkcolor() {
-
   let frequency1 = slider.value;
   frequency1 = parseFloat(frequency1);
   let frequency2 = frequency[word];
   console.log(frequency1);
   console.log(frequency2);
-  console.log(typeof (frequency1));
-  console.log(typeof (frequency2));
+  console.log(typeof frequency1);
+  console.log(typeof frequency2);
   if (frequency1 == frequency2) {
     document.querySelector("#indicator2").style.backgroundColor = "green";
-  }
-  else{
+  } else {
     document.querySelector("#indicator2").style.backgroundColor = "red";
-  } 
+  }
 }
 function colour() {
-  let v = document.getElementById('v1');
+  let v = document.getElementById("v1");
   c = localStorage["color"];
   console.log(c);
   v.style.borderLeft = "8px solid " + c;
@@ -584,15 +627,18 @@ function original() {
   document.getElementById("v1").style.borderLeft = "8px solid black";
 }
 window.onload = function () {
-  let btext = ['DEFUSE', 'STOP', 'ABORT'];
-  let colour = ['#FF0000', '#00FF00', '#0000FF'];
-  let b = document.getElementById('clickme');
+  let btext = ["DETONATE", "STOP", "ABORT"];
+  let colour = ["#FF0000", "#00FF00", "#0000FF"];
+  let b = document.getElementById("clickme");
 
-  if (localStorage["text"] == "DEFUSE" || localStorage["text"] == "STOP" || localStorage["text"] == "ABORT") {
+  if (
+    localStorage["text"] == "DETONATE" ||
+    localStorage["text"] == "STOP" ||
+    localStorage["text"] == "ABORT"
+  ) {
     /** Your code here... **/
     b.innerText = localStorage["text"];
-  }
-  else {
+  } else {
     a = btext[Math.floor(Math.random() * btext.length)];
     c = colour[Math.floor(Math.random() * colour.length)];
     localStorage["color"] = c;
@@ -602,5 +648,58 @@ window.onload = function () {
   var h = document.querySelector("#strip");
   h.value = localStorage["color"];
   var t = document.querySelector("#textstrip");
-  t.value = a;
+  t.value = localStorage["text"];
+  check();
+};
+var h = document.querySelector("#strip");
+h.value = localStorage["color"];
+var t = document.querySelector("#textstrip");
+t.value = localStorage["text"];
+if (t.value == "DETONATE") {
+  //listen to click event
+  document.getElementById("clickme").addEventListener("click", function () {
+    document.querySelector("#indicator3").style.backgroundColor = "green";
+  });
+  //listen to hold event
+  document.getElementById("clickme").addEventListener("mousedown", function () {
+    document.querySelector("#indicator3").style.backgroundColor = "red";
+  });
+} else if (t.value == "STOP") {
+  document.getElementById("clickme").addEventListener("click", function () {
+    document.querySelector("#indicator3").style.backgroundColor = "green";
+  });
+  //listen to hold event
+  document.getElementById("clickme").addEventListener("mousedown", function () {
+    document.querySelector("#indicator3").style.backgroundColor = "red";
+  });
+} else if (t.value == "ABORT") {
+  document.getElementById("clickme").addEventListener("click", function () {
+    document.querySelector("#indicator3").style.backgroundColor = "red";
+  });
+  document.getElementById("clickme").addEventListener("mousedown", function () {
+    document.getElementById("clickme").addEventListener("mouseup", function () {
+      var element = document.querySelector(".timer");
+      const s = element.innerText;
+      console.log(s, "Hello");
+      if (h.value == "#00FF00") {
+        if (s.includes("5")) {
+          document.querySelector("#indicator3").style.backgroundColor = "green";
+        } else {
+          document.querySelector("#indicator3").style.backgroundColor = "red";
+        }
+      } else if (h.value == "#0000FF") {
+        if (s.includes("4")) {
+          document.querySelector("#indicator3").style.backgroundColor = "green";
+        } else {
+          document.querySelector("#indicator3").style.backgroundColor = "red";
+        }
+      } else if (h.value == "#FF0000") {
+        if (s.includes("1")) {
+          document.querySelector("#indicator3").style.backgroundColor = "green";
+        } else {
+          document.querySelector("#indicator3").style.backgroundColor = "red";
+        }
+      }
+    });
+  });
 }
