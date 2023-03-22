@@ -2,7 +2,10 @@ from django.contrib.auth.models import AbstractUser
 from django.utils import timezone
 from django.db import models
 class Position(models.Model):
+    id=models.AutoField(primary_key=True)
     posn=models.IntegerField()
+    def __str__(self):
+        return str(self.posn)
 # User class
 class Agent(models.Model):
     # Define the extra fields

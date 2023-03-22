@@ -21,16 +21,18 @@ def level1(request):
         password = request.POST.get('pswrd')
         print(password)
         if password == 'gsdfys76fds7fds' and check==un:
-            ag = Agent.objects.get(Agid=un)
-            if ag:
-                ag.save()
-            else:
-                a=Agent(Agid=un)
-                a.save()
             group=Group.objects.get(name='Level 2')
             group.user_set.add(request.user)
-
-
+            #get position of user from position table
+            pos=Position.objects.get(id=1)
+            current_pos=pos.posn+1
+            pos.posn=current_pos
+            pos.save()
+            #update position of user in agent table
+            ag = Agent.objects.get(Agid=un)
+            ag.level1_pos=current_pos
+            ag.save()
+            #print(pos.posn,"Hello Print")
             return redirect('prelevel2')
         else:
             print('Incorrect Password')
@@ -45,6 +47,15 @@ def level2(request):
         if request.method == 'POST':
             group=Group.objects.get(name='Level 3')
             group.user_set.add(request.user)
+            #get position of user from position table
+            pos=Position.objects.get(id=1)
+            current_pos=pos.posn+1
+            pos.posn=current_pos
+            pos.save()
+            #update position of user in agent table
+            ag = Agent.objects.get(Agid=request.user.username)
+            ag.level2_pos=current_pos
+            ag.save()
             return redirect('prelevel3')
         else:
             return render(request, 'levels/level2.html', {'hints':hint})
@@ -64,6 +75,14 @@ def level3(request):
             if x==18.922 and y==72.835:
                 group=Group.objects.get(name='Level 4')
                 group.user_set.add(request.user)
+                pos=Position.objects.get(id=1)
+                current_pos=pos.posn+1
+                pos.posn=current_pos
+                pos.save()
+                #update position of user in agent table
+                ag = Agent.objects.get(Agid=request.user.username)
+                ag.level3_pos=current_pos
+                ag.save()
                 return redirect('prelevel4')
             else:
                 print('Incorrect Password')
@@ -127,6 +146,14 @@ def level4(request, **kwargs):
             if ag.a and ag.b and ag.c and ag.d:
                 group=Group.objects.get(name='Level 5')
                 group.user_set.add(request.user)
+                pos=Position.objects.get(id=1)
+                current_pos=pos.posn+1
+                pos.posn=current_pos
+                pos.save()
+                #update position of user in agent table
+                ag = Agent.objects.get(Agid=request.user.username)
+                ag.level4_pos=current_pos
+                ag.save()
                 return redirect('prelevel5')
             if ag.a:
                 ca="correct flip"
@@ -150,6 +177,14 @@ def level5(request):
         if request.method == 'POST':
             group=Group.objects.get(name='Level 6')
             group.user_set.add(request.user)
+            pos=Position.objects.get(id=1)
+            current_pos=pos.posn+1
+            pos.posn=current_pos
+            pos.save()
+            #update position of user in agent table
+            ag = Agent.objects.get(Agid=request.user.username)
+            ag.level5_pos=current_pos
+            ag.save()
             return redirect('prelevel6')
             
         else:
@@ -167,6 +202,14 @@ def level6(request):
             if ans1.lower() in loc.lower():
                 group=Group.objects.get(name='Level 7')
                 group.user_set.add(request.user)
+                pos=Position.objects.get(id=1)
+                current_pos=pos.posn+1
+                pos.posn=current_pos
+                pos.save()
+                #update position of user in agent table
+                ag = Agent.objects.get(Agid=request.user.username)
+                ag.level6_pos=current_pos
+                ag.save()
                 return redirect('prelevel7')
             else:
                 print("Nope")
@@ -193,6 +236,16 @@ def level7(request):
             else:
                 print("False")
             return redirect('level6')
+            """
+            pos=Position.objects.get(id=1)
+            current_pos=pos.posn+1
+            pos.posn=current_pos
+            pos.save()
+            #update position of user in agent table
+            ag = Agent.objects.get(Agid=request.user.username)
+            ag.level7_pos=current_pos
+            ag.save()
+            """
         else:
             return render(request, 'levels/level7.html')
     else:
