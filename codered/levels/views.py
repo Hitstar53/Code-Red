@@ -31,7 +31,7 @@ def level1(request):
             #update position of user in agent table
             ag = Agent.objects.get(Agid=un)
             ag.level1_pos=current_pos
-            ag.level_count=ag.level_count+1
+            ag.level_count=2
             ag.save()
             #print(pos.posn,"Hello Print")
             return redirect('prelevel2')
@@ -56,7 +56,7 @@ def level2(request):
             #update position of user in agent table
             ag = Agent.objects.get(Agid=request.user.username)
             ag.level2_pos=current_pos
-            ag.level_count=ag.level_count+1
+            ag.level_count=3
             ag.save()
             return redirect('prelevel3')
         else:
@@ -84,7 +84,7 @@ def level3(request):
                 #update position of user in agent table
                 ag = Agent.objects.get(Agid=request.user.username)
                 ag.level3_pos=current_pos
-                ag.level_count=ag.level_count+1
+                ag.level_count=4
                 ag.save()
                 return redirect('prelevel4')
             else:
@@ -156,7 +156,7 @@ def level4(request, **kwargs):
                 #update position of user in agent table
                 ag = Agent.objects.get(Agid=request.user.username)
                 ag.level4_pos=current_pos
-                ag.level_count=ag.level_count+1
+                ag.level_count=5
                 ag.save()
                 return redirect('prelevel5')
             if ag.a:
@@ -188,7 +188,7 @@ def level5(request):
             #update position of user in agent table
             ag = Agent.objects.get(Agid=request.user.username)
             ag.level5_pos=current_pos
-            ag.level_count=ag.level_count+1
+            ag.level_count=6
             ag.save()
             return redirect('prelevel6')
             
@@ -214,7 +214,7 @@ def level6(request):
                 #update position of user in agent table
                 ag = Agent.objects.get(Agid=request.user.username)
                 ag.level6_pos=current_pos
-                ag.level_count=ag.level_count+1
+                ag.level_count=7
                 ag.save()
                 return redirect('prelevel7')
             else:
@@ -250,8 +250,8 @@ def level7(request):
             ag.save()
             """
         else:
-            ag = Agent.objects.get(Agid=request.user.username)
-            ag.level_count=ag.level_count+1
+            # ag = Agent.objects.get(Agid=request.user.username)
+            # ag.level_count=ag.level_count+1
             return render(request, 'levels/level7.html')
     else:
         return redirect('level6')
