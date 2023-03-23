@@ -37,7 +37,7 @@ def level1(request):
             return redirect('prelevel2')
         else:
             print('Incorrect Password')
-            messages.info(request, 'Incorrect Password')
+            messages.info(request, 'Did you think it would be that easy?')
     return render(request, 'levels/level1.html', {'hints':hint})
 
 def level2(request):
@@ -69,12 +69,11 @@ def level3(request):
     user=request.user.groups.filter(name='Level 3').exists()
     if user:
         if request.method == 'POST':
-            x=float(request.POST.get('x'))
-            x=round(x,3)
-            y=float(request.POST.get('y'))
-            y=round(y,3)
+            x=(request.POST.get('x'))
+            y=(request.POST.get('y'))
+            passcode=request.POST.get('passcode')
             print(x,y)
-            if x==18.922 and y==72.835:
+            if '18.9' in x and '72.8' in y and passcode.lower()=="shadows dance in the moonlight":
                 group=Group.objects.get(name='Level 4')
                 group.user_set.add(request.user)
                 pos=Position.objects.get(id=1)

@@ -5,7 +5,7 @@
   {% endblock %}
   {% block content %}
   <link rel="stylesheet" href="{% static 'css/level3.css' %}">
-    <form method="POST">
+    <form id="lform" method="POST">
         {% csrf_token %}
         <h3>Level 3</h3>
         <div class="flex-col">
@@ -18,6 +18,7 @@
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
             </p>
         </div>
+        <input name="passcode" id="passcode" placeholder="Enter the secret phrase">
         <div class = "in">
             <label class="primary-label" for="x">°N</label>
             <input type="text" placeholder="Enter Latitude" name="x" id="x">
@@ -26,12 +27,14 @@
             <label for="y" class="ycord">°E</label>
             <input type="text" placeholder="Enter Longitude" name="y" id="y">
         </div>
-        <button type="submit" class="button" id="nextbtn" disabled>Proceed to Meeting</button>
+        <button type="submit" class="button" id="nextbtn">
+            Proceed to Meeting <i class="fas fa-arrow-right"></i>
+        </button>
     </form>
 {% endblock %}
 {% block hint %}
   
 {% endblock %}
 {% block script %}
-    <script src="{% static 'js/level3uof.js' %}"></script>
+    <script src="{% static 'js/level3.js' %}"></script>
 {% endblock %}

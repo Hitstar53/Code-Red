@@ -17,6 +17,10 @@
     <p class="word" style="text-align:center;opacity:0.5;margin-top: -20px;"></p>
     <label class="primary-label" for="username">Agent ID</label>
     <input type="text" placeholder="Enter ID" name="username" id="name">
+    <!-- 
+      <label for="password">Password</label>
+      The password is gsdfys76fds7fds
+    -->
     <label for="password">Password</label>
     <input type="password" placeholder="Enter password" name="pswrd" id="pswrd">
     <button type="submit">Proceed to next level</button>
@@ -24,14 +28,12 @@
   {% if messages %}
         {% for message in messages %}
          {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
-
         {% endfor %}
-
     {% endif %}
   {% endblock %}
  
   {% block script %}
-  <script src="{% static 'js/level1.js' %}"></script>
+  <script src="{% static 'js/level1uof.js' %}"></script>
   {% endblock %}
 <!-- <script src="{% static 'js/level1.js' %}"></script> -->
   
