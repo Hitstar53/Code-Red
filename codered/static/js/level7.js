@@ -392,7 +392,6 @@ const arr = [
 const buttons = document.querySelectorAll(".keypad");
 let random = Math.floor(Math.random() * arr.length);
 let randomarr = arr[random];
-console.log(randomarr);
 let count = 0;
 let index = 0;
 document.getElementById("opt1").innerHTML = randomarr[0];
@@ -456,7 +455,6 @@ function getMultipleRandom(arr) {
 function check() {
   if (index === 4 && count === 4) {
     document.querySelector("#indicator").style.backgroundColor = "green";
-    console.log(document.querySelector("#indicator").style.backgroundColor);
     checker++;
     checkfinal();
     index = 0;
@@ -610,15 +608,10 @@ function checkcolor() {
   let frequency1 = slider.value;
   frequency1 = parseFloat(frequency1);
   let frequency2 = frequency[word];
-  console.log(frequency1);
-  console.log(frequency2);
-  console.log(typeof frequency1);
-  console.log(typeof frequency2);
   if (frequency1 == frequency2) {
     document.querySelector("#indicator2").style.backgroundColor = "green";
     checker++;
     checkfinal();
-    console.log(document.querySelector("#indicator2").style.backgroundColor);
   } else {
     document.querySelector("#indicator2").style.backgroundColor = "red";
   }
@@ -626,7 +619,6 @@ function checkcolor() {
 function colour() {
   let v = document.getElementById("v1");
   c = localStorage["color"];
-  console.log(c);
   v.style.borderLeft = "8px solid " + c;
 }
 function original() {
@@ -665,14 +657,12 @@ if (t.value == "DETONATE") {
   //listen to click event
   document.getElementById("clickme").addEventListener("click", function () {
     document.querySelector("#indicator3").style.backgroundColor = "green";
-    console.log(document.querySelector("#indicator3").style.backgroundColor);
     checker++;
     checkfinal();
   });
 } else if (t.value == "STOP") {
   document.getElementById("clickme").addEventListener("click", function () {
     document.querySelector("#indicator3").style.backgroundColor = "green";
-    console.log(document.querySelector("#indicator3").style.backgroundColor);
     checker++;
     checkfinal();
   });
@@ -685,7 +675,6 @@ if (t.value == "DETONATE") {
     {
       if (s.includes("4")) {
         document.querySelector("#indicator3").style.backgroundColor = "green";
-        console.log(document.querySelector("#indicator3").style.backgroundColor);
         checker++;
         checkfinal();
       } else {
@@ -696,7 +685,6 @@ if (t.value == "DETONATE") {
     {
       if (s.includes("1")) {
         document.querySelector("#indicator3").style.backgroundColor = "green";
-        console.log(document.querySelector("#indicator3").style.backgroundColor);
         checker++;
         checkfinal();
       } else {
@@ -709,7 +697,6 @@ if (t.value == "DETONATE") {
         document.querySelector("#indicator3").style.backgroundColor = "green";
         checker++;
         checkfinal();
-        console.log(document.querySelector("#indicator3").style.backgroundColor);
       } else {
         document.querySelector("#indicator3").style.backgroundColor = "red";
       }
@@ -720,7 +707,6 @@ if (t.value == "DETONATE") {
 function checkfinal() {
   const defusebtn = document.querySelector("#final");
   if (checker >= 3) {
-    console.log("hello this works!");
     defusebtn.disabled = false;
     defusebtn.style.cursor = "pointer";
     defusebtn.setAttribute("value", "1");
