@@ -298,6 +298,7 @@ function stopwatch(elementName) {
 countdown("2h-countdown");
 stopwatch("stopwatch");
 
+
 // Stopwatch = 10 mins
 // var hints
 // default: 3

@@ -5,11 +5,18 @@ from django.contrib.auth.models import Group
 from django.shortcuts import redirect
 from datetime import datetime
 from .models import Agent,Position
+
+hrs = 24;
+mins = 00;
+
 # Create your views here.
 def home(request):
     return render(request, 'levels/home.html')
 
 def level1(request):
+    #if current time > 22 45, redirect to youlost
+    if datetime.now().hour >= hrs and datetime.now().minute > mins:
+        return redirect('youlost')
     hint = "Hidden in plain sight, the key to unlocking my secrets lies within the code written in black and white."
     if request.method == 'POST':
         t1=request.POST.get('form_id')
@@ -41,6 +48,8 @@ def level1(request):
     return render(request, 'levels/level1.html', {'hints':hint})
 
 def level2(request):
+    if datetime.now().hour >= hrs and datetime.now().minute > mins:
+        return redirect('youlost')
     hint = "When distance is the game, seek the warmth for the short, but for the long, it's the cold that will bring the gain."
     user=request.user.groups.filter(name='Level 2').exists()
     if user:
@@ -65,6 +74,8 @@ def level2(request):
         return redirect('level1')
 
 def level3(request):
+    if datetime.now().hour >= hrs and datetime.now().minute > mins:
+        return redirect('youlost')
     hint = "Time is a factor!"
     user=request.user.groups.filter(name='Level 3').exists()
     if user:
@@ -98,6 +109,8 @@ def level3(request):
 
 def level4(request, **kwargs):
     hint = "1-A1Z26-2-ASCII"
+    if datetime.now().hour >= hrs and datetime.now().minute > mins:
+        return redirect('youlost')
     user=request.user.groups.filter(name='Level 4').exists()
     if user:
         if request.method == 'POST':
@@ -173,7 +186,10 @@ def level4(request, **kwargs):
             return render(request, 'levels/level4.html', {'hints':hint})
     else:
         return redirect('level3')
+    
 def level5(request):
+    if datetime.now().hour >= hrs and datetime.now().minute > mins:
+        return redirect('youlost')
     hint = "Nokia has the strongest keypad."
     user=request.user.groups.filter(name='Level 5').exists()
     if user:
@@ -197,6 +213,8 @@ def level5(request):
         return redirect('level4')
 
 def level6(request):
+    if datetime.now().hour >= hrs and datetime.now().minute > mins:
+        return redirect('youlost')
     hint = "Computer Language."
     user=request.user.groups.filter(name='Level 6').exists()
     if user:
@@ -225,6 +243,8 @@ def level6(request):
         return redirect('level5')
 
 def level7(request):
+    if datetime.now().hour >= hrs and datetime.now().minute > mins:
+        return redirect('youlost')
     user=request.user.groups.filter(name='Level 7').exists()
     if user:
         if request.method == 'POST':
@@ -236,17 +256,9 @@ def level7(request):
             print(color)
             text = request.POST.get('textstrip')
             print(text)
-            
             return redirect('level6')
             """
-            pos=Position.objects.get(id=1)
-            current_pos=pos.posn+1
-            pos.posn=current_pos
-            pos.save()
-            #update position of user in agent table
-            ag = Agent.objects.get(Agid=request.user.username)
-            ag.level7_pos=current_pos
-            ag.save()
+            postion code here
             """
         else:
             # ag = Agent.objects.get(Agid=request.user.username)
@@ -259,13 +271,28 @@ def youlost(request):
     return render(request, 'levels/explosion.html')
 
 def youwon(request):
+    #it is not locked (doesnt work)
+    pos=Position.objects.get(id=1)
+    current_pos=pos.posn+1
+    pos.posn=current_pos
+    pos.save()
+    #update position of user in agent table
+    ag = Agent.objects.get(Agid=request.user.username)
+    ag.level7_pos=current_pos
+    ag.save()
     return render(request, 'levels/victory.html')
 
 #pre levels
 def prelevel1(request):
+    if datetime.now().hour < hrs-2:
+        return render(request, 'levels/home.html')
+    if datetime.now().hour >= hrs and datetime.now().minute > mins:
+        return redirect('youlost')
     return render(request, 'levels/pre_level1.html', )
 
 def prelevel2(request):
+    if datetime.now().hour >= hrs and datetime.now().minute > mins:
+        return redirect('youlost')
     user=request.user.groups.filter(name='Level 2').exists()
     if user:
         return render(request, 'levels/pre_level2.html')
@@ -274,6 +301,8 @@ def prelevel2(request):
     
 
 def prelevel3(request):
+    if datetime.now().hour >= hrs and datetime.now().minute > mins:
+        return redirect('youlost')
     user=request.user.groups.filter(name='Level 3').exists()
     if user:
         return render(request, 'levels/pre_level3.html')
@@ -281,6 +310,8 @@ def prelevel3(request):
         return redirect('level2')
 
 def prelevel4(request):
+    if datetime.now().hour >= hrs and datetime.now().minute > mins:
+        return redirect('youlost')
     user=request.user.groups.filter(name='Level 4').exists()
     if user:
         return render(request, 'levels/pre_level4.html')
@@ -288,6 +319,8 @@ def prelevel4(request):
         return redirect('level3')
 
 def prelevel5(request):
+    if datetime.now().hour >= hrs and datetime.now().minute > mins:
+        return redirect('youlost')
     user=request.user.groups.filter(name='Level 5').exists()
     if user:
         return render(request, 'levels/pre_level5.html')
@@ -295,6 +328,8 @@ def prelevel5(request):
         return redirect('level4')
 
 def prelevel6(request):
+    if datetime.now().hour >= hrs and datetime.now().minute > mins:
+        return redirect('youlost')
     user=request.user.groups.filter(name='Level 6').exists()
     if user:
         return render(request, 'levels/pre_level6.html')
@@ -302,6 +337,8 @@ def prelevel6(request):
         return redirect('level5')
 
 def prelevel7(request):
+    if datetime.now().hour >= hrs and datetime.now().minute > mins:
+        return redirect('youlost')
     user=request.user.groups.filter(name='Level 7').exists()
     if user:
         return render(request, 'levels/pre_level7.html')

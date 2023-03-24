@@ -5,7 +5,7 @@ events.add = function (obj) {
 events.implement = function (fn) {
   fn.prototype = Object.create(Events.prototype);
 };
-
+var checker = 0;
 function Events() {
   this.events = {};
 }
@@ -456,6 +456,9 @@ function getMultipleRandom(arr) {
 function check() {
   if (index === 4 && count === 4) {
     document.querySelector("#indicator").style.backgroundColor = "green";
+    console.log(document.querySelector("#indicator").style.backgroundColor);
+    checker++;
+    checkfinal();
     index = 0;
     count = 0;
   } else if (index < 4 && count === 4) {
@@ -613,6 +616,9 @@ function checkcolor() {
   console.log(typeof frequency2);
   if (frequency1 == frequency2) {
     document.querySelector("#indicator2").style.backgroundColor = "green";
+    checker++;
+    checkfinal();
+    console.log(document.querySelector("#indicator2").style.backgroundColor);
   } else {
     document.querySelector("#indicator2").style.backgroundColor = "red";
   }
@@ -659,10 +665,16 @@ if (t.value == "DETONATE") {
   //listen to click event
   document.getElementById("clickme").addEventListener("click", function () {
     document.querySelector("#indicator3").style.backgroundColor = "green";
+    console.log(document.querySelector("#indicator3").style.backgroundColor);
+    checker++;
+    checkfinal();
   });
 } else if (t.value == "STOP") {
   document.getElementById("clickme").addEventListener("click", function () {
     document.querySelector("#indicator3").style.backgroundColor = "green";
+    console.log(document.querySelector("#indicator3").style.backgroundColor);
+    checker++;
+    checkfinal();
   });
 } else if (t.value == "ABORT") {
   var element = document.querySelector(".timer");
@@ -673,6 +685,9 @@ if (t.value == "DETONATE") {
     {
       if (s.includes("4")) {
         document.querySelector("#indicator3").style.backgroundColor = "green";
+        console.log(document.querySelector("#indicator3").style.backgroundColor);
+        checker++;
+        checkfinal();
       } else {
         document.querySelector("#indicator3").style.backgroundColor = "red";
       }
@@ -681,6 +696,9 @@ if (t.value == "DETONATE") {
     {
       if (s.includes("1")) {
         document.querySelector("#indicator3").style.backgroundColor = "green";
+        console.log(document.querySelector("#indicator3").style.backgroundColor);
+        checker++;
+        checkfinal();
       } else {
         document.querySelector("#indicator3").style.backgroundColor = "red";
       }
@@ -689,13 +707,22 @@ if (t.value == "DETONATE") {
     {
       if (s.includes("5")) {
         document.querySelector("#indicator3").style.backgroundColor = "green";
+        checker++;
+        checkfinal();
+        console.log(document.querySelector("#indicator3").style.backgroundColor);
       } else {
         document.querySelector("#indicator3").style.backgroundColor = "red";
       }
     }
   });
 }
-if(document.querySelector("#indicator3").style.backgroundColor == "green" && document.querySelector("#indicator2").style.backgroundColor == "green" && document.querySelector("#indicator1").style.backgroundColor == "green"){
 
+function checkfinal() {
+  const defusebtn = document.querySelector("#final");
+  if (checker >= 3) {
+    console.log("hello this works!");
+    defusebtn.disabled = false;
+    defusebtn.style.cursor = "pointer";
+    defusebtn.setAttribute("value", "1");
+  }
 }
-

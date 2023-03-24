@@ -65,7 +65,6 @@ body {
   -moz-touch-callout: none;
   -ms-touch-callout: none;
   -o-touch-callout: none;
-  touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -292,7 +291,6 @@ body {
 }
 
 .slider {
-  -webkit-appearance: none;
   width: 180px;
   height: 10px;
   background: #ddd;
