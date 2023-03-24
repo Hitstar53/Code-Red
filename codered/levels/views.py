@@ -255,6 +255,12 @@ def level7(request):
     else:
         return redirect('level6')
 
+def youlost(request):
+    return render(request, 'levels/explosion.html')
+
+def youwon(request):
+    return render(request, 'levels/victory.html')
+
 #pre levels
 def prelevel1(request):
     return render(request, 'levels/pre_level1.html', )

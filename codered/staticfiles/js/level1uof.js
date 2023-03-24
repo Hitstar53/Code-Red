@@ -4,6 +4,9 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 //make a function which will change the text of the hint
+
+console.log("The password is abcdefghijklmnopqrstuvwxyz")
+
 sleep(25000).then(() => {
   hm.innerHTML = "Hidden in plain sight, the key to unlocking my secrets lies within the code written in black and white.";
 });

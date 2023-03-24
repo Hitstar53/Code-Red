@@ -1,10 +1,21 @@
-const currentTime = new Date().getHours();
-const btn = document.getElementById("nextbtn");
-if (currentTime === 18) {
-    btn.disabled = false;
-    btn.style.backgroundColor = "#080710";
-    btn.style.cursor = "pointer";
+// const currentTime = new Date().getHours();
+// const btn = document.getElementById("nextbtn");
+// if (currentTime === 18) {
+    // btn.disabled = false;
+    // btn.style.backgroundColor = "#080710";
+    // btn.style.cursor = "pointer";
+// }
+
+const lform = document.getElementById("lform");
+const phrase = document.getElementById("passcode");
+//if phrase is hidden then make form height 100%
+if (phrase.style.display !== "none") {
+    lform.style.height = "500px";
 }
+else {
+    lform.style.height = "460px";
+}
+
 var words = ['Meet-Up with Agent Sherlock Homless at 6 PM'],
     part,
     level3_i = 0,
