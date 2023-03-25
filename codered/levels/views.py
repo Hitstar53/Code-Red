@@ -7,7 +7,7 @@ from datetime import datetime
 from .models import Agent,Position
 
 hrs = 16;
-mins = 00;
+mins = 15;
 
 # Create your views here.
 def home(request):
