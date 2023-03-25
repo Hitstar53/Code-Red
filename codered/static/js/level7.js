@@ -660,14 +660,16 @@ function original() {
   document.getElementById("v1").style.borderLeft = "8px solid black";
 }
 window.onload = function () {
-  let btext = ["DETONATE", "STOP", "ABORT"];
+  let btext = ["DETONATE", "STOP", "ABORT", "HOLD", "PRESS"];
   let colour = ["#FF0000", "#00FF00", "#0000FF"];
   let b = document.getElementById("clickme");
 
   if (
     localStorage["text"] == "DETONATE" ||
     localStorage["text"] == "STOP" ||
-    localStorage["text"] == "ABORT"
+    localStorage["text"] == "ABORT" ||
+    localStorage["text"] == "HOLD" ||
+    localStorage["text"] == "PRESS"
   ) {
     /** Your code here... **/
     b.innerText = localStorage["text"];
@@ -703,7 +705,7 @@ if (t.value == "DETONATE") {
     checkfinal();
     beep.play();
   });
-} else if (t.value == "ABORT") {
+} else if (t.value == "ABORT" || t.value == "HOLD" || t.value == "PRESS") {
   var element = document.querySelector(".timer");
   document.getElementById("clickme").addEventListener("click", function () {
     const s = element.innerText;
