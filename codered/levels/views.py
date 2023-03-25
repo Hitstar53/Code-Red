@@ -289,8 +289,6 @@ def youwon(request):
 
 #pre levels
 def prelevel1(request):
-    if datetime.now().hour < hrs-2:
-        return render(request, 'levels/home.html')
     if datetime.now().hour >= hrs and datetime.now().minute > mins:
         return redirect('youlost')
     return render(request, 'levels/pre_level1.html', )
