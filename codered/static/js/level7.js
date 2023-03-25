@@ -601,14 +601,22 @@ function animateMorse(morse) {
         return;
       }
       if (morse[slider_i] === ".") {
-        dotLight.style.backgroundColor = "red";
+        if (slider_i==0) {
+          dotLight.style.backgroundColor = "blue";
+        } else {
+          dotLight.style.backgroundColor = "red";
+        }
         setTimeout(() => {
           dotLight.style.backgroundColor = "white";
           slider_i++;
           setTimeout(animate, 250);
         }, 500);
       } else if (morse[slider_i] === "-") {
-        dashLight.style.backgroundColor = "red";
+        if (slider_i == 0) {
+          dashLight.style.backgroundColor = "blue";
+        } else {
+          dashLight.style.backgroundColor = "red";
+        }
         setTimeout(() => {
           dashLight.style.backgroundColor = "white";
           slider_i++;
