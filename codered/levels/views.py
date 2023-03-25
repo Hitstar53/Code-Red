@@ -268,6 +268,9 @@ def level7(request):
         return redirect('level6')
 
 def youlost(request):
+    ag = Agent.objects.get(Agid=request.user.username)
+    ag.level_count=-1
+    
     return render(request, 'levels/explosion.html')
 
 def youwon(request):
@@ -279,12 +282,13 @@ def youwon(request):
     #update position of user in agent table
     ag = Agent.objects.get(Agid=request.user.username)
     ag.level7_pos=current_pos
+    ag.level_count=8
     ag.save()
     return render(request, 'levels/victory.html')
 
 #pre levels
 def prelevel1(request):
-    if datetime.now().hour < hrs-24:
+    if datetime.now().hour < hrs-2:
         return render(request, 'levels/home.html')
     if datetime.now().hour >= hrs and datetime.now().minute > mins:
         return redirect('youlost')
