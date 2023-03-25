@@ -279,6 +279,7 @@ def youwon(request):
     current_pos=pos.posn+1
     pos.posn=current_pos
     pos.save()
+    #
     #update position of user in agent table
     ag = Agent.objects.get(Agid=request.user.username)
     ag.level7_pos=current_pos
