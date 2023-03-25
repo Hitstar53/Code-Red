@@ -9,8 +9,9 @@
     <title>Final Level | Code Red</title>
     <link rel="stylesheet" href="{% static 'css/level7.css' %}">
 </head>
-<body>
-    <div id="wrapper">
+<body onload="showPage()">
+    <div id="loader"></div>
+    <div id="wrapper" style="display:none;" class="animate-bottom">
         <div class="viewport">
             <div class="cube">
                 <div class="side panel4">
@@ -95,5 +96,4 @@
     </script>
     <script src="{% static 'js/level7.js' %}"></script>
 </body>
-
 </html>

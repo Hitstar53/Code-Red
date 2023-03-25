@@ -1,3 +1,9 @@
+//show loader for 3 seconds
+setTimeout(function () {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("wrapper").style.display = "block";
+}, 3000);
+
 var events = new Events();
 events.add = function (obj) {
   obj.events = {};
