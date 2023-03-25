@@ -536,7 +536,6 @@ function getRandomWord() {
   return dictionary[Math.floor(Math.random() * dictionary.length)];
 }
 const word = getRandomWord();
-console.log(word);
 const dotLight = document.getElementById("dot");
 const dashLight = document.getElementById("dash");
 
@@ -709,7 +708,6 @@ if (t.value == "DETONATE") {
   var element = document.querySelector(".timer");
   document.getElementById("clickme").addEventListener("click", function () {
     const s = element.innerText;
-    console.log(s, "Hello");
     if(h.value == "#0000FF")
     {
       if (s.includes("4")) {
@@ -748,7 +746,7 @@ if (t.value == "DETONATE") {
 
 function checkfinal() {
   const defusebtn = document.querySelector("#final");
-  if (checker1==1 && checker2==1 && checker3>=1) {
+  if (checker1>=1 && checker2>=1 && checker3>=1) {
     defusebtn.disabled = false;
     defusebtn.style.cursor = "pointer";
     defusebtn.setAttribute("value", "1");
