@@ -6,7 +6,7 @@ from django.shortcuts import redirect
 from datetime import datetime
 from .models import Agent,Position
 
-hrs = 24;
+hrs = 16;
 mins = 00;
 
 # Create your views here.
@@ -76,7 +76,7 @@ def level2(request):
 def level3(request):
     if datetime.now().hour >= hrs and datetime.now().minute > mins:
         return redirect('youlost')
-    hint = "Time is a factor!"
+    hint = "The key lies in the phrase which is in what lies before."
     user=request.user.groups.filter(name='Level 3').exists()
     if user:
         if request.method == 'POST':
