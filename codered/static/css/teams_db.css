@@ -22,7 +22,7 @@ body {
 table {
   width: 800px;
   border-collapse: collapse;
-  overflow: hidden;
+  /* overflow: hidden; */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   
 }
