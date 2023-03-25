@@ -105,3 +105,8 @@ button {
     font-size: 1.3em;
     font-weight: 600;
 }
+
+button:hover {
+    color: #fff;
+    background: #000;
+}

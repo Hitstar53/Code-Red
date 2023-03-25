@@ -5,7 +5,9 @@ events.add = function (obj) {
 events.implement = function (fn) {
   fn.prototype = Object.create(Events.prototype);
 };
-var checker = 0;
+var checker1 = 0;
+var checker2 = 0;
+var checker3 = 0;
 function Events() {
   this.events = {};
 }
@@ -345,6 +347,7 @@ Cube.prototype.sideChange = function () {
     "cube-image"
   )[0].className = "cube-image active";
 };
+//countdown (Timer)
 function countdown(elementName) {
   var element, endTime, hours, mins, msLeft, time;
   function twoDigits(n) {
@@ -366,9 +369,11 @@ function countdown(elementName) {
 
       localStorage.setItem("endTime", endTime);
     }
+    timerbeep.play();
+    //lower volume
+    timerbeep.volume = 0.05;
   }
   element = document.getElementById(elementName);
-
   endTime = localStorage.getItem("endTime") || +new Date() + 1000 * 60 * 60 * 2;
   updateTimer();
 }
@@ -377,6 +382,8 @@ new Cube({
   viewport: viewport,
   element: document.getElementsByClassName("cube")[0],
 });
+
+//Panel 1 - Symbols
 const opt1 = document.querySelector("#opt1");
 const opt2 = document.querySelector("#opt2");
 const opt3 = document.querySelector("#opt3");
@@ -390,7 +397,7 @@ const arr = [
   ["Ӭ", "æ", "Ψ", "Ω"],
 ];
 const buttons = document.querySelectorAll(".keypad");
-let random = Math.floor(Math.random() * arr.length);
+let random = Math.floor(Math.random()*arr.length);
 let randomarr = arr[random];
 let count = 0;
 let index = 0;
@@ -419,6 +426,7 @@ opt1.addEventListener("click", () => {
   } else {
     index = 0;
   }
+  opt1.style.backgroundColor = "darkgreen";
   check();
 });
 opt2.addEventListener("click", () => {
@@ -428,6 +436,7 @@ opt2.addEventListener("click", () => {
   } else {
     index = 0;
   }
+  opt2.style.backgroundColor = "darkgreen";
   check();
 });
 opt3.addEventListener("click", () => {
@@ -437,6 +446,7 @@ opt3.addEventListener("click", () => {
   } else {
     index = 0;
   }
+  opt3.style.backgroundColor = "darkgreen";
   check();
 });
 opt4.addEventListener("click", () => {
@@ -446,6 +456,7 @@ opt4.addEventListener("click", () => {
   } else {
     index = 0;
   }
+  opt4.style.backgroundColor = "darkgreen";
   check();
 });
 function getMultipleRandom(arr) {
@@ -455,14 +466,20 @@ function getMultipleRandom(arr) {
 function check() {
   if (index === 4 && count === 4) {
     document.querySelector("#indicator").style.backgroundColor = "green";
-    checker++;
+    checker1++;
     checkfinal();
+    //play a beep sound
+    beep.play();
     index = 0;
     count = 0;
   } else if (index < 4 && count === 4) {
     document.querySelector("#indicator").style.backgroundColor = "red";
     index = 0;
     count = 0;
+    opt1.style.backgroundColor = "#adff2f";
+    opt2.style.backgroundColor = "#adff2f";
+    opt3.style.backgroundColor = "#adff2f";
+    opt4.style.backgroundColor = "#adff2f";
   }
 }
 const slider = document.querySelector(".slider");
@@ -472,6 +489,7 @@ slider.addEventListener("input", function () {
   value.textContent = this.value;
 });
 
+//Panel 2 - Morse Code
 const dictionary = [
   "SHELL",
   "HALLS",
@@ -610,12 +628,15 @@ function checkcolor() {
   let frequency2 = frequency[word];
   if (frequency1 == frequency2) {
     document.querySelector("#indicator2").style.backgroundColor = "green";
-    checker++;
+    checker2++;
     checkfinal();
+    beep.play();
   } else {
     document.querySelector("#indicator2").style.backgroundColor = "red";
   }
 }
+
+//Panel 3 - Simon Says
 function colour() {
   let v = document.getElementById("v1");
   c = localStorage["color"];
@@ -657,14 +678,16 @@ if (t.value == "DETONATE") {
   //listen to click event
   document.getElementById("clickme").addEventListener("click", function () {
     document.querySelector("#indicator3").style.backgroundColor = "green";
-    checker++;
+    checker3++;
     checkfinal();
+    beep.play();
   });
 } else if (t.value == "STOP") {
   document.getElementById("clickme").addEventListener("click", function () {
     document.querySelector("#indicator3").style.backgroundColor = "green";
-    checker++;
+    checker3++;
     checkfinal();
+    beep.play();
   });
 } else if (t.value == "ABORT") {
   var element = document.querySelector(".timer");
@@ -675,8 +698,9 @@ if (t.value == "DETONATE") {
     {
       if (s.includes("4")) {
         document.querySelector("#indicator3").style.backgroundColor = "green";
-        checker++;
+        checker3++;
         checkfinal();
+        beep.play();
       } else {
         document.querySelector("#indicator3").style.backgroundColor = "red";
       }
@@ -685,8 +709,9 @@ if (t.value == "DETONATE") {
     {
       if (s.includes("1")) {
         document.querySelector("#indicator3").style.backgroundColor = "green";
-        checker++;
+        checker3++;
         checkfinal();
+        beep.play();
       } else {
         document.querySelector("#indicator3").style.backgroundColor = "red";
       }
@@ -695,8 +720,9 @@ if (t.value == "DETONATE") {
     {
       if (s.includes("5")) {
         document.querySelector("#indicator3").style.backgroundColor = "green";
-        checker++;
+        checker3++;
         checkfinal();
+        beep.play();
       } else {
         document.querySelector("#indicator3").style.backgroundColor = "red";
       }
@@ -706,7 +732,7 @@ if (t.value == "DETONATE") {
 
 function checkfinal() {
   const defusebtn = document.querySelector("#final");
-  if (checker >= 3) {
+  if (checker1==1 && checker2==1 && checker3>=1) {
     defusebtn.disabled = false;
     defusebtn.style.cursor = "pointer";
     defusebtn.setAttribute("value", "1");

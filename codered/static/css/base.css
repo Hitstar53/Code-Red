@@ -52,6 +52,7 @@ body{
   width: 110px;
   padding: 0 12px 0;
   font-weight: bold;
+  border: none;
   border-radius: 6px;
   color: white;
   background: black;

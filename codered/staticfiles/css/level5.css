@@ -13,7 +13,7 @@
     transform: translate(170%, 100%);
     font-family: 'Anonymous Pro', monospace;
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 900;
 }
 
 .link-wrapper a{
@@ -25,12 +25,21 @@ a#code2{
     display: none;
 }
 
-.button-css{
+.proceed-btn{
     position: absolute;
-    transform: translate(610%, 800%);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%);
     font-family: 'Anonymous Pro', monospace;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
+    border: none;
+    background-color: #000;
+}
+
+.proceed-btn:hover{
+    background-color: #fff;
+    color: #000;
 }
 
 @media (max-width: 1440px) {

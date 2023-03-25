@@ -65,7 +65,6 @@ body {
   -moz-touch-callout: none;
   -ms-touch-callout: none;
   -o-touch-callout: none;
-  touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -169,38 +168,39 @@ body {
 
 .panel1
 {
-  background-image : url("https://i.ibb.co/jyfmp0Y/bomb-panel-1.png");
+  background-image : url('../assets/bomb-panel-1.png');
   background-size: 100% 100%;
 }
 
 .panel2
 {
-  background-image : url("https://i.ibb.co/JnHnPX6/bomb-panel-2.png");
+  background-image : url("../assets/bomb-panel-2.png");
   background-size: 100% 100%;
 }
 
 .panel3
 {
-  background-image : url("https://i.ibb.co/TRzp2bS/bomb-panel-3.png");
+  background-image : url("../assets/bomb-panel-3.png");
   background-size: 100% 100%;
 }
 
 .panel4
 {
-  background-image : url("https://i.ibb.co/CvvZN4v/bomb-panel-4.png");
+  background-image : url("../assets/bomb-panel-4.png");
   background-size: 100% 100%;
 }
 
 .panel5
 {
-  background-image : url("https://i.ibb.co/P4fWsgp/bomb-panel-5.png");
+  background-image : url("../assets/bomb-panel-5.png");
   background-size: 100% 100%;
 }
 
 .panel6
 {
-  background-image : url("https://i.ibb.co/Mnt4SGz/bomb-panel-6.png");
+  background-image : url("../assets/bomb-panel-6.png");
   background-size: 100% 100%;
+  color:#FF0000
 } 
 
 .indicate {
@@ -237,13 +237,18 @@ body {
 }
 
 .symbol {
-  background-color: greenyellow;
+  background-color: #adff2f;
   width: 80px;
   height: 40px;
-  font-size: x-large;
+  font-size: 20px;
   font-family: Times New Roman, serif;
-  border: 1px solid black;
+  border: none;
   border-radius: 15px;
+}
+
+.symbol:hover {
+  background-color: yellow;
+  cursor: pointer;
 }
 
 .display-container {
@@ -291,7 +296,6 @@ body {
 }
 
 .slider {
-  -webkit-appearance: none;
   width: 180px;
   height: 10px;
   background: #ddd;
@@ -430,4 +434,13 @@ object:hover {
   }
 }
 
+#final{
+  position: absolute;
+  width: 47px;
+  height: 30px;
+  font-size: 8px;
+  margin-left: -10px;
+  transform: translate(320%, 46%);
+  background-color: greenyellow;
+}
 

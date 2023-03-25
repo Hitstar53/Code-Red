@@ -1,8 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Rubik+Iso:regular);
+
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Rubik Iso', sans-serif;
 }
 
 .container{

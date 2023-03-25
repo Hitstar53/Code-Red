@@ -5,7 +5,7 @@ Invisiblity.
 {% endblock %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/level5.css' %}">
-<h1 class="title">Hidden</h1>
+<h1 class="title">Level 5</h1>
     <div class = "link-wrapper">
         <a href="{% static 'assets/Bomb_Defusal_Manual.pdf' %}" id="code1" download>DOWNLOAD INTEL</a>
         <br>
@@ -13,7 +13,9 @@ Invisiblity.
     </div>
     <form method="post">
         {% csrf_token %}
-        <button type="submit" class="btn btn-primary button-css">Proceed</button>
+        <button type="submit" class="btn btn-primary proceed-btn">
+            Proceed <i class="fas fa-arrow-right"></i>
+        </button>
     </form>
 {% endblock %}
 {% block hint %}
