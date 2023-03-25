@@ -3,6 +3,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from levels.models import Agent
 from django.contrib.auth.models import User
+import csv
 # Create your views here.
 def login_user(request):
     if request.method == 'POST':
@@ -46,3 +47,20 @@ def add_user(request):
 def teamsdb(request):
     teams = Agent.objects.all()
     return render(request, 'authenticate/teams_db.html', {'teams':teams})
+
+def add(request):
+    if request.method == 'POST':
+        #read the data from Team_Name.csv
+        with open('register/Team_Names.csv', 'r') as f:
+            reader = csv.reader(f)
+            for row in reader:
+                teamname = row[0]
+                password = 'codered_2023'
+                if User.objects.filter(username=teamname).exists():
+                    pass
+                else:
+                    user = User.objects.create_user(username=teamname, password=password)
+                    user.save()
+                    a=Agent(Agid=teamname)
+                    a.save()
+    return render(request, 'authenticate/add.html')
