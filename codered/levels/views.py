@@ -270,7 +270,6 @@ def level7(request):
 def youlost(request):
     ag = Agent.objects.get(Agid=request.user.username)
     ag.level_count=-1
-    
     return render(request, 'levels/explosion.html')
 
 def youwon(request):
